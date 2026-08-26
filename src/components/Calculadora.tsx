@@ -77,8 +77,11 @@ function formatEur(valor: number): string {
 }
 
 export default function Calculadora() {
-  const [brutoAnual, setBrutoAnual] = useState(30000);
+  const [brutoInput, setBrutoInput] = useState("30000");
   const [pagas, setPagas] = useState<NumeroPagas>(14);
+
+  const brutoAnual =
+    brutoInput === "" ? 0 : Math.max(0, Number(brutoInput) || 0);
 
   const resultado = useMemo(
     () => calcularNomina(brutoAnual, pagas),
@@ -106,8 +109,17 @@ export default function Calculadora() {
             type="number"
             min={0}
             step={100}
-            value={brutoAnual}
-            onChange={(e) => setBrutoAnual(Number(e.target.value) || 0)}
+            inputMode="decimal"
+            value={brutoInput}
+            onChange={(e) => {
+              const value = e.target.value;
+              if (value === "") {
+                setBrutoInput("");
+                return;
+              }
+              if (Number(value) < 0) return;
+              setBrutoInput(value);
+            }}
             className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
           />
         </label>
