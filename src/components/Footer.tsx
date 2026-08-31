@@ -16,12 +16,9 @@ export default function Footer() {
         <Link href="/cookies" className="hover:underline">
           Política de Cookies
         </Link>
-        <a
-          href="mailto:soportecalculadorasueldo@gmail.com"
-          className="hover:underline text-zinc-700 dark:text-zinc-300 font-medium"
-        >
+        <Link href="/contacto" className="hover:underline">
           Contacto
-        </a>
+        </Link>
       </nav>
       <p className="mt-3 text-center text-xs text-zinc-500">
         © {new Date().getFullYear()} Calculadora de sueldo. Datos orientativos.
