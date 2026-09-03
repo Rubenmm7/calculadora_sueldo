@@ -160,6 +160,11 @@ function formatMiles(valor: string): string {
   return new Intl.NumberFormat("es-ES", { useGrouping: "always" }).format(Number(valor));
 }
 
+function handleFormattedNumber(value: string): string {
+  const digits = value.replace(/\./g, "").replace(/\D/g, "");
+  return digits.replace(/^0+(?=\d)/, "");
+}
+
 function Tooltip({ text }: { text: string }) {
   const [show, setShow] = useState(false);
 
@@ -431,12 +436,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   Bonus Anual
                 </span>
                 <input
-                  type="number"
-                  min={0}
+                  type="text"
+                  inputMode="numeric"
                   step={100}
-                  inputMode="decimal"
-                  value={bonusAnual}
-                  onChange={(e) => setBonusAnual(e.target.value)}
+                  value={formatMiles(bonusAnual)}
+                  onChange={(e) => setBonusAnual(handleFormattedNumber(e.target.value))}
                   className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
@@ -445,12 +449,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   Incentivos/Comisiones
                 </span>
                 <input
-                  type="number"
-                  min={0}
+                  type="text"
+                  inputMode="numeric"
                   step={100}
-                  inputMode="decimal"
-                  value={incentivos}
-                  onChange={(e) => setIncentivos(e.target.value)}
+                  value={formatMiles(incentivos)}
+                  onChange={(e) => setIncentivos(handleFormattedNumber(e.target.value))}
                   className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
@@ -459,12 +462,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   Horas Extras
                 </span>
                 <input
-                  type="number"
-                  min={0}
+                  type="text"
+                  inputMode="numeric"
                   step={100}
-                  inputMode="decimal"
-                  value={horasExtras}
-                  onChange={(e) => setHorasExtras(e.target.value)}
+                  value={formatMiles(horasExtras)}
+                  onChange={(e) => setHorasExtras(handleFormattedNumber(e.target.value))}
                   className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
@@ -473,12 +475,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   Gratificaciones
                 </span>
                 <input
-                  type="number"
-                  min={0}
+                  type="text"
+                  inputMode="numeric"
                   step={100}
-                  inputMode="decimal"
-                  value={gratificaciones}
-                  onChange={(e) => setGratificaciones(e.target.value)}
+                  value={formatMiles(gratificaciones)}
+                  onChange={(e) => setGratificaciones(handleFormattedNumber(e.target.value))}
                   className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
@@ -586,21 +587,12 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               <Tooltip text="Es la cantidad que se deduce de tu base imponible antes de calcular el IRPF. Varía según tu estado civil y dependientes." />
             </span>
             <input
-              type="number"
-              min={0}
+              type="text"
+              inputMode="numeric"
               step={100}
-              inputMode="decimal"
               placeholder={MINIMO_PERSONAL_POR_ESTADO[estadoCivil].toString()}
-              value={customMinimo}
-              onChange={(e) => {
-                const value = e.target.value;
-                if (value === "") {
-                  setCustomMinimo("");
-                  return;
-                }
-                if (Number(value) < 0) return;
-                setCustomMinimo(value);
-              }}
+              value={formatMiles(customMinimo)}
+              onChange={(e) => setCustomMinimo(handleFormattedNumber(e.target.value))}
               className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
             />
             <p className="text-xs text-zinc-500 dark:text-zinc-400">

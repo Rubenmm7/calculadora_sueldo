@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 
 type Frecuencia = 1 | 4 | 12;
 
+const añoActual = new Date().getFullYear();
+
 interface FilaAnual {
   año: number;
   aportaciones: number;
@@ -36,7 +38,6 @@ function calcularInteresCompuesto(
   inflacion: number,
   impuestos: number,
 ): Resultado {
-  const totalPeriodos = años * frecuencia;
   const rentabilidadPeriodica = Math.pow(1 + rentabilidad / 100, 1 / frecuencia) - 1;
   let saldo = inicial;
   let capitalAportado = inicial;
@@ -54,7 +55,7 @@ function calcularInteresCompuesto(
 
     capitalAportado += aportacionesAño;
     filas.push({
-      año,
+      año: añoActual + año - 1,
       aportaciones: aportacionesAño,
       intereses: saldo - saldoInicial - aportacionesAño,
       saldo,
@@ -85,6 +86,10 @@ function formatEur(value: number): string {
   }).format(value);
 }
 
+function formatMiles(value: number): string {
+  return new Intl.NumberFormat("es-ES", { useGrouping: "always" }).format(value);
+}
+
 function formatPercent(value: number): string {
   return new Intl.NumberFormat("es-ES", {
     style: "percent",
@@ -101,6 +106,7 @@ function InputCampo({
   max,
   step = 1,
   suffix,
+  currency = false,
 }: {
   label: string;
   value: number;
@@ -109,18 +115,54 @@ function InputCampo({
   max?: number;
   step?: number;
   suffix: string;
+  currency?: boolean;
 }) {
+  const [texto, setTexto] = useState(() => (currency ? formatMiles(value) : String(value)));
+
+  const handleChange = (rawValue: string) => {
+    if (currency) {
+      const normalizedValue = rawValue.replace(/\./g, "").replace(/\D/g, "");
+      if (normalizedValue === "") {
+        setTexto("");
+        onChange(0);
+        return;
+      }
+
+      const withoutLeadingZeros = normalizedValue.replace(/^0+(?=\d)/, "");
+      const parsedValue = Number(withoutLeadingZeros);
+      const limitedValue = max === undefined ? Math.max(min, parsedValue) : Math.min(max, Math.max(min, parsedValue));
+      setTexto(formatMiles(limitedValue));
+      onChange(limitedValue);
+      return;
+    }
+
+    if (rawValue === "") {
+      setTexto("");
+      onChange(0);
+      return;
+    }
+
+    const normalizedValue = rawValue.replace(",", ".");
+    const parsedValue = Number(normalizedValue);
+    if (!Number.isFinite(parsedValue)) return;
+    const limitedValue = Math.max(min, parsedValue);
+    const finalValue = max === undefined ? limitedValue : Math.min(max, limitedValue);
+    setTexto(rawValue.replace(",", "."));
+    onChange(finalValue);
+  };
+
   return (
     <label className="block space-y-2">
       <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">{label}</span>
       <div className="relative">
         <input
-          type="number"
+          type={currency ? "text" : "number"}
+          inputMode={currency ? "numeric" : "decimal"}
           min={min}
           max={max}
           step={step}
-          value={value}
-          onChange={(event) => onChange(Math.max(min, Number(event.target.value) || 0))}
+          value={texto}
+          onChange={(event) => handleChange(event.target.value)}
           className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-12 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
         />
         <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-sm text-zinc-500 dark:text-zinc-400">
@@ -132,6 +174,7 @@ function InputCampo({
 }
 
 export default function CalculadoraInteresCompuesto() {
+  const [versionFormulario, setVersionFormulario] = useState(0);
   const [inicial, setInicial] = useState(5000);
   const [aportacion, setAportacion] = useState(300);
   const [rentabilidad, setRentabilidad] = useState(6);
@@ -146,6 +189,7 @@ export default function CalculadoraInteresCompuesto() {
   );
 
   const resetear = () => {
+    setVersionFormulario((version) => version + 1);
     setInicial(5000);
     setAportacion(300);
     setRentabilidad(6);
@@ -172,10 +216,10 @@ export default function CalculadoraInteresCompuesto() {
             Datos de la inversión
           </h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <InputCampo label="Inversión inicial" value={inicial} onChange={setInicial} step={100} suffix="€" />
-            <InputCampo label="Aportación periódica" value={aportacion} onChange={setAportacion} step={25} suffix="€" />
-            <InputCampo label="Rentabilidad anual estimada" value={rentabilidad} onChange={setRentabilidad} max={100} step={0.1} suffix="%" />
-            <InputCampo label="Duración de la inversión" value={años} onChange={setAños} max={100} suffix="años" />
+            <InputCampo key={`inicial-${versionFormulario}`} label="Inversión inicial" value={inicial} onChange={setInicial} step={100} suffix="€" currency />
+            <InputCampo key={`aportacion-${versionFormulario}`} label="Aportación periódica" value={aportacion} onChange={setAportacion} step={25} suffix="€" currency />
+            <InputCampo key={`rentabilidad-${versionFormulario}`} label="Rentabilidad anual estimada" value={rentabilidad} onChange={setRentabilidad} max={100} step={0.1} suffix="%" />
+            <InputCampo key={`años-${versionFormulario}`} label="Duración de la inversión" value={años} onChange={setAños} min={1} max={100} suffix="años" />
           </div>
         </div>
 
@@ -206,8 +250,8 @@ export default function CalculadoraInteresCompuesto() {
             ))}
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            <InputCampo label="Inflación anual estimada" value={inflacion} onChange={setInflacion} max={30} step={0.1} suffix="%" />
-            <InputCampo label="Impuestos sobre ganancias" value={impuestos} onChange={setImpuestos} max={100} step={1} suffix="%" />
+            <InputCampo key={`inflacion-${versionFormulario}`} label="Inflación anual estimada" value={inflacion} onChange={setInflacion} max={30} step={0.1} suffix="%" />
+            <InputCampo key={`impuestos-${versionFormulario}`} label="Impuestos sobre ganancias" value={impuestos} onChange={setImpuestos} max={100} step={1} suffix="%" />
           </div>
           <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
             La aportación se realiza al final de cada periodo. Los impuestos son una estimación simplificada sobre los intereses, no una liquidación fiscal.
@@ -240,6 +284,81 @@ export default function CalculadoraInteresCompuesto() {
             <div className="flex justify-between gap-4"><dt className="text-zinc-600 dark:text-zinc-400">Impuestos estimados</dt><dd className="font-semibold text-red-700 dark:text-red-300">- {formatEur(resultado.impuestos)}</dd></div>
             <div className="flex justify-between gap-4 border-t border-zinc-200 pt-2 dark:border-zinc-700"><dt className="font-bold text-zinc-900 dark:text-zinc-100">Rentabilidad sobre lo aportado</dt><dd className="font-bold text-green-700 dark:text-green-300">{formatPercent((resultado.intereses / Math.max(1, resultado.capitalAportado)) * 100)}</dd></div>
           </dl>
+        </div>
+
+        <div className="space-y-3">
+          <div className="flex items-center justify-between gap-4">
+            <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Crecimiento del capital</h2>
+            <span className="text-xs text-zinc-500 dark:text-zinc-400">Saldo acumulado por año</span>
+          </div>
+            <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
+              La línea representa la evolución estimada del saldo acumulado, sumando tus aportaciones y la rentabilidad anual seleccionada.
+              Los importes del eje vertical son aproximados.
+            </p>
+          <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-900">
+            <svg
+              viewBox="0 0 720 280"
+              role="img"
+              aria-labelledby="grafica-titulo grafica-descripcion"
+              className="h-auto min-w-[620px] w-full"
+            >
+              <title id="grafica-titulo">Evolución estimada del capital</title>
+              <desc id="grafica-descripcion">
+                Gráfica que muestra el saldo acumulado aproximado para cada año de la inversión.
+              </desc>
+              {(() => {
+                const chartWidth = 660;
+                const chartHeight = 210;
+                const offsetX = 42;
+                const offsetY = 18;
+                const maxSaldo = Math.max(1, ...resultado.filas.map((fila) => fila.saldo));
+                const yTicks = [0, 0.25, 0.5, 0.75, 1];
+                const xTickIndexes = Array.from(
+                  new Set([0, Math.floor((resultado.filas.length - 1) / 2), resultado.filas.length - 1]),
+                );
+                const points = resultado.filas
+                  .map((fila, index) => {
+                    const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                    const y = offsetY + chartHeight - (fila.saldo / maxSaldo) * chartHeight;
+                    return `${x},${y}`;
+                  })
+                  .join(" ");
+
+                return (
+                  <>
+                    {yTicks.map((tick) => {
+                      const y = offsetY + chartHeight - tick * chartHeight;
+                      return (
+                        <g key={tick}>
+                          <line x1={offsetX} y1={y} x2={offsetX + chartWidth} y2={y} className="stroke-zinc-200 dark:stroke-zinc-800" strokeDasharray="3 5" />
+                          <text x="8" y={y + 4} className="fill-zinc-500 text-[12px]">{formatEur(maxSaldo * tick)}</text>
+                        </g>
+                      );
+                    })}
+                    <line x1={offsetX} y1={offsetY} x2={offsetX} y2={offsetY + chartHeight} className="stroke-zinc-300 dark:stroke-zinc-700" />
+                    <polyline points={points} fill="none" className="stroke-emerald-600 dark:stroke-emerald-400" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+                    {resultado.filas.map((fila, index) => {
+                      const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                      const y = offsetY + chartHeight - (fila.saldo / maxSaldo) * chartHeight;
+                      return (
+                        <circle key={fila.año} cx={x} cy={y} r="4" className="fill-emerald-600 dark:fill-emerald-400">
+                          <title>{`${fila.año}: ${formatEur(fila.saldo)} acumulados`}</title>
+                        </circle>
+                      );
+                    })}
+                    {xTickIndexes.map((index) => {
+                      const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                      return (
+                        <text key={resultado.filas[index].año} x={x} y="260" textAnchor={index === 0 ? "start" : index === resultado.filas.length - 1 ? "end" : "middle"} className="fill-zinc-500 text-[12px]">
+                          {resultado.filas[index].año}
+                        </text>
+                      );
+                    })}
+                  </>
+                );
+              })()}
+            </svg>
+          </div>
         </div>
 
         <div className="space-y-3">
