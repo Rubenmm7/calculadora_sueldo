@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contacto y Atención al Usuario - Calculadora de Sueldo",
-  description: "Formas de contacto con el equipo de soporte de la Calculadora de Sueldo Bruto a Neto en España.",
+  title: "Contacto y atención al usuario",
+  description: "Contacta con el equipo de CalculaSueldo para resolver dudas, comunicar errores o enviar sugerencias.",
 };
 
 export default function ContactoPage() {

@@ -24,12 +24,16 @@ export default function CookieBanner() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "accepted" || saved === "rejected") {
-      setConsent(saved);
-      applyConsent(saved);
-    }
-    setReady(true);
+    const timer = window.setTimeout(() => {
+      const saved = window.localStorage.getItem(STORAGE_KEY);
+      if (saved === "accepted" || saved === "rejected") {
+        setConsent(saved);
+        applyConsent(saved);
+      }
+      setReady(true);
+    }, 0);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   function save(value: CookieConsent) {

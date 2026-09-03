@@ -8,11 +8,14 @@ export default function Navbar() {
           href="/"
           className="text-lg font-bold text-zinc-900 hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-zinc-300"
         >
-          Inicio
+          CalculaSueldo
         </Link>
-        <div className="flex gap-6 text-sm text-zinc-600 dark:text-zinc-400">
-          <Link href="/" className="hover:underline">
-            Calculadora
+        <div className="flex gap-4 text-sm text-zinc-600 dark:text-zinc-400 sm:gap-6">
+          <Link href="/interes-compuesto" className="hover:underline">
+            Interés compuesto
+          </Link>
+          <Link href="/articulos" className="hover:underline">
+            Artículos relacionados
           </Link>
         </div>
       </div>

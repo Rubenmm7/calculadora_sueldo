@@ -155,6 +155,11 @@ function formatEur(valor: number): string {
   }).format(valor);
 }
 
+function formatMiles(valor: string): string {
+  if (valor === "") return "";
+  return new Intl.NumberFormat("es-ES", { useGrouping: "always" }).format(Number(valor));
+}
+
 function Tooltip({ text }: { text: string }) {
   const [show, setShow] = useState(false);
 
@@ -343,10 +348,10 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
     <section className="mx-auto w-full max-w-4xl rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
       <header className="mb-6 space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Calculadora bruto → neto
+          Calculadora bruto a neto
         </h1>
         <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Estimación orientativa para España (régimen general). No sustituye una nómina real.
+          Estimación orientativa para España (régimen general).
         </p>
       </header>
 
@@ -400,23 +405,19 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               </span>
               <Tooltip text="El sueldo anual bruto es el dinero total que recibirás antes de cualquier descuento de impuestos o seguridad social." />
             </div>
-            <input
-              type="number"
-              min={0}
-              step={100}
-              inputMode="decimal"
-              value={brutoInput}
-              onChange={(e) => {
-                const value = e.target.value;
-                if (value === "") {
-                  setBrutoInput("");
-                  return;
-                }
-                if (Number(value) < 0) return;
-                setBrutoInput(value);
-              }}
-              className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
-            />
+            <div className="relative">
+              <input
+                type="text"
+                inputMode="numeric"
+                value={formatMiles(brutoInput)}
+                onChange={(e) => setBrutoInput(e.target.value.replace(/\D/g, ""))}
+                aria-label="Salario bruto anual en euros"
+                className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-10 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+              />
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-500 dark:text-zinc-400">
+                €
+              </span>
+            </div>
           </label>
 
           <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
@@ -613,11 +614,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
       <div className="mt-8 space-y-6 border-t border-zinc-200 pt-6 dark:border-zinc-800">
         {/* Resumen Principal */}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-          <div className="rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 p-4 dark:from-green-950 dark:to-emerald-950">
+          <div className="min-w-0 overflow-hidden rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 p-4 dark:from-green-950 dark:to-emerald-950">
             <p className="text-xs font-semibold uppercase text-green-700 dark:text-green-300">
               Neto Mensual
             </p>
-            <p className="text-3xl font-bold text-green-900 dark:text-green-100">
+            <p className="overflow-x-auto whitespace-nowrap text-3xl font-bold text-green-900 dark:text-green-100">
               {formatEur(resultado.netoMensual)}
             </p>
             <p className="text-xs text-green-700 dark:text-green-300">
@@ -625,11 +626,11 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             </p>
           </div>
 
-          <div className="rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 p-4 dark:from-blue-950 dark:to-cyan-950">
+          <div className="min-w-0 overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 p-4 dark:from-blue-950 dark:to-cyan-950">
             <p className="text-xs font-semibold uppercase text-blue-700 dark:text-blue-300">
               Neto Anual
             </p>
-            <p className="text-3xl font-bold text-blue-900 dark:text-blue-100">
+            <p className="overflow-x-auto whitespace-nowrap text-3xl font-bold text-blue-900 dark:text-blue-100">
               {formatEur(resultado.netoAnual)}
             </p>
             <p className="text-xs text-blue-700 dark:text-blue-300">
@@ -646,13 +647,13 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <dl className="space-y-2 rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
             <div className="flex justify-between">
               <dt className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base mensual</dt>
-              <dd className="font-semibold text-zinc-900 dark:text-zinc-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.brutoMensual)}
               </dd>
             </div>
             <div className="flex justify-between">
               <dt className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base anual</dt>
-              <dd className="font-semibold text-zinc-900 dark:text-zinc-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.brutoAnual)}
               </dd>
             </div>
@@ -661,7 +662,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                 <div className="border-t border-zinc-200 pt-2 dark:border-zinc-700"></div>
                 <div className="flex justify-between">
                   <dt className="text-sm text-zinc-700 dark:text-zinc-300">Complementos totales</dt>
-                  <dd className="font-semibold text-zinc-900 dark:text-zinc-100">
+                  <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                     {formatEur(complementos)}
                   </dd>
                 </div>
@@ -690,7 +691,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             )}
             <div className="flex justify-between font-bold">
               <dt className="text-zinc-900 dark:text-zinc-100">Total Ingresos</dt>
-              <dd className="text-zinc-900 dark:text-zinc-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.totalIngresoAnual)}
               </dd>
             </div>
@@ -705,7 +706,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <dl className="space-y-2 rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-950">
             <div className="flex justify-between text-sm">
               <dt className="text-orange-700 dark:text-orange-300">Desempleo (1.55%)</dt>
-              <dd className="font-semibold text-orange-900 dark:text-orange-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssDesempleo / 12)} / mes
               </dd>
             </div>
@@ -716,7 +717,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
 
             <div className="flex justify-between text-sm">
               <dt className="text-orange-700 dark:text-orange-300">Contingencias Comunes (4.70%)</dt>
-              <dd className="font-semibold text-orange-900 dark:text-orange-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssContingencias / 12)} / mes
               </dd>
             </div>
@@ -727,7 +728,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
 
             <div className="flex justify-between text-sm">
               <dt className="text-orange-700 dark:text-orange-300">Formación Profesional (0.60%)</dt>
-              <dd className="font-semibold text-orange-900 dark:text-orange-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssFormacion / 12)} / mes
               </dd>
             </div>
@@ -738,7 +739,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
 
             <div className="flex justify-between text-sm">
               <dt className="text-orange-700 dark:text-orange-300">Accidentes de Trabajo (0.00%)</dt>
-              <dd className="font-semibold text-orange-900 dark:text-orange-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssAccidentes / 12)} / mes
               </dd>
             </div>
@@ -751,7 +752,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
 
             <div className="flex justify-between font-bold">
               <dt className="text-orange-900 dark:text-orange-100">Total SS</dt>
-              <dd className="text-orange-900 dark:text-orange-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssMensual)} / mes
               </dd>
             </div>
@@ -772,7 +773,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               <dt className="text-red-700 dark:text-red-300">
                 IRPF ({resultado.tipoIrpfEfectivo.toFixed(2)}% efectivo)
               </dt>
-              <dd className="font-semibold text-red-900 dark:text-red-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-red-900 dark:text-red-100">
                 {formatEur(resultado.irpfMensual)} / mes
               </dd>
             </div>
@@ -794,13 +795,13 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <dl className="space-y-2 rounded-lg border border-zinc-300 bg-zinc-100 p-4 dark:border-zinc-600 dark:bg-zinc-800">
             <div className="flex justify-between">
               <dt className="text-sm font-medium text-zinc-800 dark:text-zinc-200">Total ingresos</dt>
-              <dd className="font-semibold text-zinc-900 dark:text-zinc-100">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.totalIngresoAnual)}
               </dd>
             </div>
             <div className="flex justify-between text-red-700 dark:text-red-300">
               <dt className="text-sm font-medium">− Total deducciones</dt>
-              <dd className="font-semibold">
+              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold">
                 {formatEur(resultado.totalDeducciones)}
               </dd>
             </div>
@@ -809,7 +810,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                 <dt className="text-base font-bold text-green-700 dark:text-green-300">
                   = Neto anual
                 </dt>
-                <dd className="text-base font-bold text-green-700 dark:text-green-300">
+                <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-base font-bold text-green-700 dark:text-green-300">
                   {formatEur(resultado.netoAnual)}
                 </dd>
               </div>

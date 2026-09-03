@@ -21,7 +21,7 @@ export default function Footer() {
         </Link>
       </nav>
       <p className="mt-3 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} Calculadora de sueldo. Datos orientativos.
+        © {new Date().getFullYear()} CalculaSueldo. Datos orientativos.
       </p>
     </footer>
   );

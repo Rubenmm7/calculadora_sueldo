@@ -17,7 +17,7 @@ export default function AvisoLegalPage() {
         Titular
       </h2>
       <ul className="list-disc space-y-1 pl-5">
-        <li>Nombre comercial / sitio: Calculadora de sueldo</li>
+        <li>Nombre comercial / sitio: CalculaSueldo</li>
         <li>Actividad: herramienta informativa de cálculo salarial (España)</li>
         <li>
           Titular: completa aquí tu nombre y apellidos o razón social, NIF/CIF y

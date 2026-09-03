@@ -8,22 +8,51 @@ export default function Home() {
         <Calculadora />
 
         {/* Sección SEO clave para la aprobación de AdSense */}
-        <article className="prose prose-zinc mx-auto max-w-xl dark:prose-invert">
-          <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-            ¿Cómo se calcula el salario neto en España?
-          </h2>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            El sueldo neto se obtiene restando del salario bruto anual dos deducciones clave: las aportaciones a la 
-            <strong> Seguridad Social</strong> (desempleo, contingencias comunes y formación) y las retenciones a cuenta del 
-            <strong> IRPF</strong>.
-          </p>
-          <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-            Diferencia entre 12 y 14 pagas
-          </h3>
-          <p className="text-sm text-zinc-600 dark:text-zinc-400">
-            Cobrar en 12 o 14 pagas no altera la retribución bruta total al año ni la cantidad global de impuestos pagados. 
-            Con 14 pagas se perciben dos pagas extraordinarias (habitualmente en junio y diciembre), lo que reduce la mensualidad ordinaria.
-          </p>
+        <article className="mx-auto max-w-2xl space-y-8 border-t border-zinc-200 pt-10 pb-4 dark:border-zinc-800">
+          <section className="space-y-4">
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+              ¿Cómo se calcula el salario neto en España?
+            </h2>
+            <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+              El sueldo neto se obtiene restando del salario bruto anual dos deducciones clave: las aportaciones a la
+              <strong> Seguridad Social</strong> (desempleo, contingencias comunes y formación) y las retenciones a cuenta del
+              <strong> IRPF</strong>.
+            </p>
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                Diferencia entre 12 y 14 pagas
+              </h3>
+              <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                Cobrar en 12 o 14 pagas no altera la retribución bruta total al año ni la cantidad global de impuestos pagados.
+                Con 14 pagas se perciben dos pagas extraordinarias (habitualmente en junio y diciembre), lo que reduce la mensualidad ordinaria.
+              </p>
+            </div>
+          </section>
+
+          <section className="space-y-4 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+              Preguntas frecuentes sobre el sueldo neto
+            </h2>
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                ¿Qué diferencia hay entre sueldo bruto y sueldo neto?
+              </h3>
+              <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                El sueldo bruto es la cantidad pactada antes de deducciones. El sueldo neto es lo que recibes en tu cuenta después de restar la Seguridad Social y la retención del IRPF.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+                ¿La calculadora sirve para cualquier comunidad autónoma?
+              </h3>
+              <p className="text-sm leading-6 text-zinc-600 dark:text-zinc-400">
+                Ofrece una estimación orientativa para España. El resultado exacto puede variar según la comunidad autónoma, el contrato, la situación familiar y las circunstancias personales.
+              </p>
+            </div>
+            <p className="border-t border-zinc-200 pt-4 text-xs leading-5 text-zinc-500 dark:border-zinc-800 dark:text-zinc-400">
+              CalculaSueldo no sustituye una nómina oficial ni el asesoramiento de un profesional fiscal.
+            </p>
+          </section>
         </article>
       </div>
     </main>
