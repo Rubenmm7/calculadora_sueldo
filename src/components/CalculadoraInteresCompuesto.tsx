@@ -175,6 +175,7 @@ function InputCampo({
 
 export default function CalculadoraInteresCompuesto() {
   const [versionFormulario, setVersionFormulario] = useState(0);
+  const [añoActivo, setAñoActivo] = useState<number | null>(null);
   const [inicial, setInicial] = useState(5000);
   const [aportacion, setAportacion] = useState(300);
   const [rentabilidad, setRentabilidad] = useState(6);
@@ -293,29 +294,36 @@ export default function CalculadoraInteresCompuesto() {
           </div>
             <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
               La línea representa la evolución estimada del saldo acumulado, sumando tus aportaciones y la rentabilidad anual seleccionada.
-              Los importes del eje vertical son aproximados.
+              La línea naranja muestra cuánto conservarías si solo ahorraras esas cantidades, descontando la inflación. Los importes del eje vertical son aproximados.
             </p>
-          <div className="overflow-x-auto rounded-lg border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-900">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-xs text-zinc-600 dark:text-zinc-400">
+            <span className="inline-flex items-center gap-2"><span className="h-0.5 w-5 bg-emerald-500" /> Inversión</span>
+            <span className="inline-flex items-center gap-2"><span className="h-0.5 w-5 bg-orange-500" /> Solo ahorro, valor real</span>
+          </div>
+          <div className="overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50 p-3 dark:border-zinc-700 dark:bg-zinc-900">
             <svg
               viewBox="0 0 720 280"
               role="img"
               aria-labelledby="grafica-titulo grafica-descripcion"
-              className="h-auto min-w-[620px] w-full"
+              className="h-auto w-full"
             >
               <title id="grafica-titulo">Evolución estimada del capital</title>
               <desc id="grafica-descripcion">
-                Gráfica que muestra el saldo acumulado aproximado para cada año de la inversión.
+                Gráfica que compara el saldo acumulado de la inversión con el valor real del ahorro sin invertir para cada año.
               </desc>
               {(() => {
                 const chartWidth = 660;
                 const chartHeight = 210;
                 const offsetX = 42;
                 const offsetY = 18;
-                const maxSaldo = Math.max(1, ...resultado.filas.map((fila) => fila.saldo));
+                const ahorroSinInvertir = resultado.filas.map((fila, index) => {
+                  const capitalAhorrado = inicial + resultado.filas
+                    .slice(0, index + 1)
+                    .reduce((total, filaAnual) => total + filaAnual.aportaciones, 0);
+                  return capitalAhorrado / Math.pow(1 + inflacion / 100, index + 1);
+                });
+                const maxSaldo = Math.max(1, ...resultado.filas.map((fila) => fila.saldo), ...ahorroSinInvertir);
                 const yTicks = [0, 0.25, 0.5, 0.75, 1];
-                const xTickIndexes = Array.from(
-                  new Set([0, Math.floor((resultado.filas.length - 1) / 2), resultado.filas.length - 1]),
-                );
                 const points = resultado.filas
                   .map((fila, index) => {
                     const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
@@ -336,22 +344,84 @@ export default function CalculadoraInteresCompuesto() {
                       );
                     })}
                     <line x1={offsetX} y1={offsetY} x2={offsetX} y2={offsetY + chartHeight} className="stroke-zinc-300 dark:stroke-zinc-700" />
+                    {resultado.filas.map((fila, index) => {
+                      const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                      const y = offsetY + chartHeight - (fila.saldo / maxSaldo) * chartHeight;
+                      return <line key={`guia-${fila.año}`} x1={x} y1={offsetY + chartHeight} x2={x} y2={y} className="stroke-zinc-300 opacity-50 dark:stroke-zinc-600" strokeWidth="1" />;
+                    })}
+                    <polyline
+                      points={ahorroSinInvertir.map((saldo, index) => {
+                        const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                        const y = offsetY + chartHeight - (saldo / maxSaldo) * chartHeight;
+                        return `${x},${y}`;
+                      }).join(" ")}
+                      fill="none"
+                      className="stroke-orange-500 dark:stroke-orange-400"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeDasharray="6 5"
+                    />
+                    {resultado.filas.map((fila, index) => {
+                      const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
+                      const y = offsetY + chartHeight - (ahorroSinInvertir[index] / maxSaldo) * chartHeight;
+                      return <circle key={`ahorro-${fila.año}`} cx={x} cy={y} r="3" className="fill-orange-500 dark:fill-orange-400" pointerEvents="none" />;
+                    })}
                     <polyline points={points} fill="none" className="stroke-emerald-600 dark:stroke-emerald-400" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
                     {resultado.filas.map((fila, index) => {
                       const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
                       const y = offsetY + chartHeight - (fila.saldo / maxSaldo) * chartHeight;
+                      const ahorroY = offsetY + chartHeight - (ahorroSinInvertir[index] / maxSaldo) * chartHeight;
                       return (
-                        <circle key={fila.año} cx={x} cy={y} r="4" className="fill-emerald-600 dark:fill-emerald-400">
-                          <title>{`${fila.año}: ${formatEur(fila.saldo)} acumulados`}</title>
-                        </circle>
+                        <g key={fila.año}>
+                          <circle
+                            cx={x}
+                            cy={ahorroY}
+                            r="8"
+                            className="fill-transparent"
+                            onMouseEnter={() => setAñoActivo(fila.año)}
+                            onMouseLeave={() => setAñoActivo(null)}
+                          />
+                          <circle
+                            cx={x}
+                            cy={y}
+                            r="8"
+                            className="fill-transparent"
+                            onMouseEnter={() => setAñoActivo(fila.año)}
+                            onMouseLeave={() => setAñoActivo(null)}
+                          />
+                          <circle cx={x} cy={y} r="4" className="fill-emerald-600 dark:fill-emerald-400" pointerEvents="none">
+                            <title>{`${fila.año}: ${formatEur(fila.saldo)} acumulados`}</title>
+                          </circle>
+                          {añoActivo === fila.año && (
+                            <g transform={`translate(${Math.max(86, Math.min(chartWidth - 44, x))}, ${Math.max(62, Math.min(y, ahorroY) - 14)})`} pointerEvents="none">
+                              <rect x="-82" y="-56" width="164" height="50" rx="5" className="fill-zinc-900 dark:fill-zinc-100" />
+                              <text x="0" y="-40" textAnchor="middle" className="fill-white text-[11px] font-semibold dark:fill-zinc-900">
+                                {fila.año}
+                              </text>
+                              <text x="0" y="-25" textAnchor="middle" className="fill-white text-[10px] dark:fill-zinc-900">
+                                {`Inversión: ${formatEur(fila.saldo)}`}
+                              </text>
+                              <text x="0" y="-11" textAnchor="middle" className="fill-white text-[10px] dark:fill-zinc-900">
+                                {`Ahorro: ${formatEur(ahorroSinInvertir[index])}`}
+                              </text>
+                            </g>
+                          )}
+                        </g>
                       );
                     })}
-                    {xTickIndexes.map((index) => {
+                    {resultado.filas.map((fila, index) => {
                       const x = offsetX + (index / Math.max(1, resultado.filas.length - 1)) * chartWidth;
                       return (
-                        <text key={resultado.filas[index].año} x={x} y="260" textAnchor={index === 0 ? "start" : index === resultado.filas.length - 1 ? "end" : "middle"} className="fill-zinc-500 text-[12px]">
-                          {resultado.filas[index].año}
-                        </text>
+                        <g key={fila.año}>
+                          {index % 2 === 0 ? (
+                            <text x={x} y="260" textAnchor={index === 0 ? "start" : index === resultado.filas.length - 1 ? "end" : "middle"} className="fill-zinc-500 text-[12px]">
+                              {fila.año}
+                            </text>
+                          ) : (
+                            <line x1={x} y1="253" x2={x} y2="260" className="stroke-zinc-400 dark:stroke-zinc-500" strokeWidth="1" />
+                          )}
+                        </g>
                       );
                     })}
                   </>
