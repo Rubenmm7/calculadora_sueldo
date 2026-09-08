@@ -7,6 +7,9 @@ export default function Footer() {
         aria-label="Información legal"
         className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
       >
+        <Link href="/blog" className="hover:underline">
+          Blog
+        </Link>
         <Link href="/privacidad" className="hover:underline">
           Política de Privacidad
         </Link>
@@ -21,7 +24,7 @@ export default function Footer() {
         </Link>
       </nav>
       <p className="mt-3 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} CalculaSueldo. Datos orientativos.
+        © {new Date().getFullYear()} Números Claritos. Datos orientativos y contenidos editoriales.
       </p>
     </footer>
   );

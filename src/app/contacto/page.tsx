@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contacto y atención al usuario",
-  description: "Contacta con el equipo de CalculaSueldo para resolver dudas, comunicar errores o enviar sugerencias.",
+  description: "Contacta con Números Claritos para resolver dudas, comunicar errores o enviar sugerencias sobre nóminas e IRPF.",
 };
 
 export default function ContactoPage() {

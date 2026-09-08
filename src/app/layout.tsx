@@ -5,7 +5,7 @@ import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = "https://numerosclaritos.com";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,40 +18,42 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "CalculaSueldo: Calculadora de sueldo bruto a neto",
-    template: "%s | CalculaSueldo",
+    default: "Números Claritos | Calculadora de nóminas y sueldo neto en España",
+    template: "%s | Números Claritos",
   },
   description:
-    "Calcula tu sueldo neto en España desde el salario bruto. Estima IRPF, Seguridad Social, complementos y nómina mensual en 12 o 14 pagas.",
-  metadataBase: new URL(siteUrl),
-  applicationName: "CalculaSueldo",
+    "Calcula tu sueldo neto en España, entiende cómo funciona tu nómina y consulta guías sobre IRPF, Seguridad Social e interés compuesto en Números Claritos.",
+  applicationName: "Números Claritos",
   keywords: [
-    "calculadora sueldo neto",
-    "calculadora salario bruto a neto",
     "sueldo neto España",
-    "calcular nómina",
-    "IRPF nómina",
-    "Seguridad Social sueldo",
+    "calculadora nómina",
+    "IRPF 2026",
+    "qué se descuenta de la nómina",
+    "12 o 14 pagas",
+    "interés compuesto",
+    "nómina en España",
+    "desempleo nómina",
   ],
-  authors: [{ name: "CalculaSueldo" }],
-  creator: "CalculaSueldo",
-  publisher: "CalculaSueldo",
+  authors: [{ name: "Números Claritos" }],
+  creator: "Números Claritos",
+  publisher: "Números Claritos",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "/",
-    siteName: "CalculaSueldo",
-    title: "CalculaSueldo: calcula tu sueldo neto",
+    url: siteUrl,
+    siteName: "Números Claritos",
+    title: "Números Claritos | Nóminas, IRPF y finanzas personales",
     description:
-      "Convierte tu salario bruto en una estimación de sueldo neto con IRPF y Seguridad Social.",
+      "Herramientas y guías para entender tu nómina, el sueldo neto y la fiscalidad laboral en España.",
   },
   twitter: {
-    card: "summary",
-    title: "CalculaSueldo: calcula tu sueldo neto",
+    card: "summary_large_image",
+    title: "Números Claritos | Nóminas, IRPF y finanzas personales",
     description:
-      "Calculadora de sueldo bruto a neto para España, con 12 o 14 pagas.",
+      "Calculadora de sueldo neto y artículos de SEO sobre nóminas e IRPF en España.",
   },
   robots: { index: true, follow: true },
 };

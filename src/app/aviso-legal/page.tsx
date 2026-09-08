@@ -17,27 +17,15 @@ export default function AvisoLegalPage() {
         Titular
       </h2>
       <ul className="list-disc space-y-1 pl-5">
-        <li>Nombre comercial / sitio: CalculaSueldo</li>
-        <li>Actividad: herramienta informativa de cálculo salarial (España)</li>
-        <li>
-          Titular: completa aquí tu nombre y apellidos o razón social, NIF/CIF y
-          domicilio a efectos de notificaciones
-        </li>
-        <li>
-          Contacto:{" "}
-          <a href="mailto:contacto@tudominio.com" className="underline">
-            contacto@tudominio.com
-          </a>{" "}
-          (sustituye esta dirección por tu correo real)
-        </li>
+        <li>Nombre comercial / sitio: Números Claritos</li>
+        <li>Actividad: portal editorial y herramienta informativa sobre nóminas, IRPF y finanzas personales en España</li>
+        <li>Contacto: <a href="mailto:soportecalculadorasueldo@gmail.com" className="underline">soportecalculadorasueldo@gmail.com</a></li>
       </ul>
       <h2 className="pt-2 text-base font-semibold text-zinc-900 dark:text-zinc-100">
         Objeto
       </h2>
       <p>
-        El sitio ofrece una estimación orientativa de sueldo neto. No constituye
-        asesoramiento fiscal, laboral ni jurídico, ni sustituye una nómina o un
-        cálculo profesional.
+        El sitio ofrece estimaciones orientativas de sueldo neto, explicaciones sobre nóminas, IRPF y seguridad social, así como contenido editorial para ayudar a entender finanzas personales en España. No constituye asesoramiento fiscal, laboral ni jurídico, ni sustituye una nómina o un cálculo profesional.
       </p>
       <h2 className="pt-2 text-base font-semibold text-zinc-900 dark:text-zinc-100">
         Propiedad intelectual
