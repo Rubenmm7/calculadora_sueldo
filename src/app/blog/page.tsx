@@ -14,7 +14,6 @@ export default function BlogPage() {
   return (
     <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
 
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-3xl space-y-4">

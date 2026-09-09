@@ -87,25 +87,29 @@ export default function Home() {
 
       <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
         <div className="mx-auto max-w-6xl space-y-10 lg:space-y-12">
-          <section className="rounded-[32px] border border-zinc-200 bg-white p-5 shadow-sm ring-1 ring-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:ring-zinc-800 sm:p-7 lg:p-8">
-            <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-3xl space-y-4">
-                <span className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:border-emerald-900 dark:bg-emerald-950/50 dark:text-emerald-300">
-                  Números Claritos
-                </span>
-                <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-                  Calculadora de Sueldo Neto e IRPF en España
-                </h1>
-                <p className="max-w-2xl text-base leading-7 text-zinc-600 dark:text-zinc-300 sm:text-lg">
-                  Comprueba tu salario bruto, la cotización a la Seguridad Social, la retención del IRPF y el resultado real antes de aceptar una oferta o revisar tu nómina.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200">
-                <span className="font-semibold">Cálculo orientativo:</span> nómina, IRPF y Seguridad Social en España.
-              </div>
+          <section className="overflow-hidden rounded-[32px] border border-zinc-700 bg-[#050b10] p-5 shadow-sm sm:p-7 lg:p-8">
+            <div className="mb-6 border-b border-zinc-700 pb-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                NÚMEROS CLARITOS / CALCULADORA
+              </p>
             </div>
 
-            <Calculadora />
+            <div className="max-w-5xl space-y-5">
+              <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+                Calculadora de Sueldo Neto e IRPF en España
+              </h1>
+              <p className="max-w-3xl text-lg leading-8 text-zinc-300">
+                Comprueba tu salario bruto, la cotización a la Seguridad Social, la retención del IRPF y el resultado real antes de aceptar una oferta o revisar tu nómina.
+              </p>
+            </div>
+
+            <div className="mt-7 rounded-2xl border border-emerald-500/70 bg-emerald-500/10 px-4 py-4 text-sm text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.12)]">
+              <span className="font-semibold text-emerald-300">Cálculo orientativo:</span> nómina, IRPF y Seguridad Social en España.
+            </div>
+
+            <div className="mt-8">
+              <Calculadora />
+            </div>
           </section>
 
           <section aria-label="Acceso rápido a otras herramientas" className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
