@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contacto y atención al usuario",
-  description: "Contacta con Números Claritos para resolver dudas, comunicar errores o enviar sugerencias sobre nóminas e IRPF.",
+  description: "Contacta con Números claritos para resolver dudas, comunicar errores o enviar sugerencias sobre nóminas e IRPF.",
 };
 
 export default function ContactoPage() {
@@ -14,9 +14,6 @@ export default function ContactoPage() {
       <div className="mx-auto max-w-6xl space-y-8">
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-3xl space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-              Números Claritos / Contacto
-            </p>
             <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
               Contacto y atención al usuario
             </h1>
@@ -69,25 +66,6 @@ export default function ContactoPage() {
               para más información sobre tus derechos.
             </div>
           </aside>
-        </section>
-
-        <section className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-                Herramienta útil
-              </p>
-              <h2 className="mt-2 text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                Vuelve a la calculadora principal
-              </h2>
-            </div>
-            <Link
-              href="/"
-              className="inline-flex items-center justify-center rounded-xl bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
-            >
-              Ir a la calculadora
-            </Link>
-          </div>
         </section>
       </div>
     </main>

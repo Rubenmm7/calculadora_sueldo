@@ -19,7 +19,7 @@ export default function ArticulosPage() {
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-2xl space-y-3">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-              Números Claritos / Artículos
+              Números claritos / Artículos
             </p>
             <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
               Finanzas personales y nóminas, explicadas sin rodeos

@@ -17,9 +17,6 @@ export default function BlogPage() {
 
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-3xl space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-              Números Claritos / Blog
-            </p>
             <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
               Explicaciones claras sobre nóminas, IRPF y finanzas personales
             </h1>

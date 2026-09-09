@@ -1,12 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname?.startsWith(href) ?? false;
+  };
+
+  const navLinkClass = (href: string) => {
+    const active = isActive(href);
+
+    return [
+      "rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200",
+      active
+        ? "bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-200 dark:ring-emerald-900"
+        : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
+    ].join(" ");
+  };
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -59,7 +77,7 @@ export default function Navbar() {
               href="/"
               className="text-left text-2xl font-black tracking-tight text-zinc-900 hover:text-emerald-700 dark:text-zinc-100 dark:hover:text-emerald-300 sm:text-[2rem]"
             >
-              Números Claritos
+              Números claritos
             </Link>
 
             <button
@@ -77,17 +95,17 @@ export default function Navbar() {
               </span>
             </button>
 
-            <div className="hidden items-center gap-5 text-base text-zinc-600 sm:flex dark:text-zinc-400">
-              <Link href="/" className="hover:underline" onClick={() => setIsOpen(false)}>
+            <div className="hidden items-center gap-2 text-base sm:flex dark:text-zinc-400">
+              <Link href="/" aria-current={isActive("/") ? "page" : undefined} className={navLinkClass("/")} onClick={() => setIsOpen(false)}>
                 Calculadora de sueldo neto
               </Link>
-              <Link href="/interes-compuesto" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/interes-compuesto" aria-current={isActive("/interes-compuesto") ? "page" : undefined} className={navLinkClass("/interes-compuesto")} onClick={() => setIsOpen(false)}>
                 Interés compuesto
               </Link>
-              <Link href="/blog" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/blog" aria-current={isActive("/blog") ? "page" : undefined} className={navLinkClass("/blog")} onClick={() => setIsOpen(false)}>
                 Blog
               </Link>
-              <Link href="/contacto" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/contacto" aria-current={isActive("/contacto") ? "page" : undefined} className={navLinkClass("/contacto")} onClick={() => setIsOpen(false)}>
                 Contacto
               </Link>
             </div>
@@ -102,16 +120,16 @@ export default function Navbar() {
             }
           >
             <div className="flex flex-col gap-2">
-              <Link href="/" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/" aria-current={isActive("/") ? "page" : undefined} className={navLinkClass("/")} onClick={() => setIsOpen(false)}>
                 Calculadora de sueldo neto
               </Link>
-              <Link href="/interes-compuesto" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/interes-compuesto" aria-current={isActive("/interes-compuesto") ? "page" : undefined} className={navLinkClass("/interes-compuesto")} onClick={() => setIsOpen(false)}>
                 Interés compuesto
               </Link>
-              <Link href="/blog" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/blog" aria-current={isActive("/blog") ? "page" : undefined} className={navLinkClass("/blog")} onClick={() => setIsOpen(false)}>
                 Blog
               </Link>
-              <Link href="/contacto" className="hover:underline" onClick={() => setIsOpen(false)}>
+              <Link href="/contacto" aria-current={isActive("/contacto") ? "page" : undefined} className={navLinkClass("/contacto")} onClick={() => setIsOpen(false)}>
                 Contacto
               </Link>
             </div>

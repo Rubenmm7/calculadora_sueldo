@@ -20,12 +20,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Números Claritos | Calculadora de nóminas y sueldo neto en España",
-    template: "%s | Números Claritos",
+    default: "Números claritos | Calculadora de nóminas y sueldo neto en España",
+    template: "%s | Números claritos",
   },
   description:
-    "Calcula tu sueldo neto en España, entiende cómo funciona tu nómina y consulta guías sobre IRPF, Seguridad Social e interés compuesto en Números Claritos.",
-  applicationName: "Números Claritos",
+    "Calcula tu sueldo neto en España, entiende cómo funciona tu nómina y consulta guías sobre IRPF, Seguridad Social e interés compuesto en Números claritos.",
+  applicationName: "Números claritos",
   keywords: [
     "sueldo neto España",
     "calculadora nómina",
@@ -36,22 +36,22 @@ export const metadata: Metadata = {
     "nómina en España",
     "desempleo nómina",
   ],
-  authors: [{ name: "Números Claritos" }],
-  creator: "Números Claritos",
-  publisher: "Números Claritos",
+  authors: [{ name: "Números claritos" }],
+  creator: "Números claritos",
+  publisher: "Números claritos",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: siteUrl,
-    siteName: "Números Claritos",
-    title: "Números Claritos | Nóminas, IRPF y finanzas personales",
+    siteName: "Números claritos",
+    title: "Números claritos | Nóminas, IRPF y finanzas personales",
     description:
       "Herramientas y guías para entender tu nómina, el sueldo neto y la fiscalidad laboral en España.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Números Claritos | Nóminas, IRPF y finanzas personales",
+    title: "Números claritos | Nóminas, IRPF y finanzas personales",
     description:
       "Calculadora de sueldo neto y artículos de SEO sobre nóminas e IRPF en España.",
   },

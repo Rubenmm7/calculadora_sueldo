@@ -29,7 +29,7 @@ export async function generateMetadata({
       description: post.excerpt,
       publishedTime: post.publishedAt,
       modifiedTime: post.publishedAt,
-      siteName: "Números Claritos",
+      siteName: "Números claritos",
       locale: "es_ES",
     },
   };
@@ -63,7 +63,7 @@ export default async function BlogPostPage({
             <time dateTime={post.publishedAt}>Actualizado {post.publishedAt}</time>
           </div>
 
-          <h1 className="mt-5 text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 md:text-5xl">
+          <h1 className="mt-5 text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
             {post.title}
           </h1>
 

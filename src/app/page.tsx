@@ -88,14 +88,10 @@ export default function Home() {
       <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
         <div className="mx-auto max-w-6xl space-y-10 lg:space-y-12">
           <section className="overflow-hidden rounded-[32px] border border-zinc-700 bg-[#050b10] p-5 shadow-sm sm:p-7 lg:p-8">
-            <div className="mb-6 border-b border-zinc-700 pb-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-                NÚMEROS CLARITOS / CALCULADORA
-              </p>
-            </div>
+            
 
             <div className="max-w-5xl space-y-5">
-              <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+              <h1 className="text-4xl font-black tracking-tight text-white ">
                 Calculadora de Sueldo Neto e IRPF en España
               </h1>
               <p className="max-w-3xl text-lg leading-8 text-zinc-300">
@@ -109,42 +105,6 @@ export default function Home() {
 
             <div className="mt-8">
               <Calculadora />
-            </div>
-          </section>
-
-          <section aria-label="Acceso rápido a otras herramientas" className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
-            <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-                  Herramientas de la web
-                </p>
-                <h2 className="mt-2 text-2xl font-bold text-zinc-900 dark:text-zinc-50">
-                  Accede rápido a las calculadoras más útiles
-                </h2>
-              </div>
-              <Link href="/blog" className="inline-flex items-center text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-300">
-                Ver guías y explicaciones →
-              </Link>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-              {toolCards.map((card) => (
-                <Link
-                  key={card.title}
-                  href={card.href}
-                  className="group rounded-2xl border border-zinc-200 bg-zinc-50 p-5 transition duration-200 hover:-translate-y-0.5 hover:border-emerald-300 hover:bg-emerald-50 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-emerald-700 dark:hover:bg-zinc-900"
-                >
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300">
-                      {card.tag}
-                    </span>
-                    <span className="text-lg text-emerald-600 transition group-hover:translate-x-1 dark:text-emerald-300">→</span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">{card.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{card.description}</p>
-                </Link>
-              ))}
             </div>
           </section>
 

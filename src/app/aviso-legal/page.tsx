@@ -17,7 +17,7 @@ export default function AvisoLegalPage() {
         Titular
       </h2>
       <ul className="list-disc space-y-1 pl-5">
-        <li>Nombre comercial / sitio: Números Claritos</li>
+        <li>Nombre comercial / sitio: Números claritos</li>
         <li>Actividad: portal editorial y herramienta informativa sobre nóminas, IRPF y finanzas personales en España</li>
         <li>Contacto: <a href="mailto:soportecalculadorasueldo@gmail.com" className="underline">soportecalculadorasueldo@gmail.com</a></li>
       </ul>

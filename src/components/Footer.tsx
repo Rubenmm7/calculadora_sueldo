@@ -33,7 +33,7 @@ export default function Footer() {
         </Link>
       </nav>
       <p className="mt-3 text-center text-xs text-zinc-500">
-        © {new Date().getFullYear()} Números Claritos. Datos orientativos y contenidos editoriales.
+        © {new Date().getFullYear()} Números claritos. Datos orientativos y contenidos editoriales.
       </p>
     </footer>
   );

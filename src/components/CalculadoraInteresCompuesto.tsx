@@ -153,7 +153,7 @@ function InputCampo({
 
   return (
     <label className="block space-y-2">
-      <span className="text-sm font-medium text-zinc-800 dark:text-zinc-200">{label}</span>
+      <span className="text-xs font-medium text-zinc-800 dark:text-zinc-200">{label}</span>
       <div className="relative">
         <input
           type={currency ? "text" : "number"}
@@ -207,18 +207,18 @@ export default function CalculadoraInteresCompuesto() {
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
             Simulador
           </p>
-          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+          <h2 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-2xl">
             Calculadora de interés compuesto
           </h2>
         </div>
-        <p className="max-w-xl text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="max-w-xl text-xs text-zinc-600 dark:text-zinc-400">
           Simula cómo pueden crecer tus ahorros con una inversión inicial, aportaciones periódicas y efecto del tiempo.
         </p>
       </header>
 
       <div className="space-y-6">
         <div className="space-y-4">
-          <h2 className="text-sm font-bold uppercase tracking-wide text-zinc-900 dark:text-zinc-100">
+          <h2 className="text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-900 dark:text-zinc-100">
             Datos de la inversión
           </h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -230,7 +230,7 @@ export default function CalculadoraInteresCompuesto() {
         </div>
 
         <fieldset className="space-y-3 border-t border-zinc-200 pt-6 dark:border-zinc-800">
-          <legend className="text-sm font-bold uppercase tracking-wide text-zinc-900 dark:text-zinc-100">
+          <legend className="text-[11px] font-bold uppercase tracking-[0.18em] text-zinc-900 dark:text-zinc-100">
             Frecuencia y supuestos
           </legend>
           <div className="grid grid-cols-3 gap-2">
@@ -266,24 +266,24 @@ export default function CalculadoraInteresCompuesto() {
 
         <div className="grid grid-cols-1 gap-4 border-t border-zinc-200 pt-6 md:grid-cols-3 dark:border-zinc-800">
           <div className="min-w-0 overflow-hidden rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 p-4 dark:from-green-950 dark:to-emerald-950">
-            <p className="text-xs font-semibold uppercase text-green-700 dark:text-green-300">Capital final neto</p>
-            <p className="overflow-x-auto whitespace-nowrap text-2xl font-bold text-green-900 dark:text-green-100">{formatEur(resultado.saldoNeto)}</p>
-            <p className="mt-1 text-xs text-green-700 dark:text-green-300">Después de impuestos estimados</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-green-700 dark:text-green-300">Capital final neto</p>
+            <p className="overflow-x-auto whitespace-nowrap text-xl font-bold text-green-900 dark:text-green-100">{formatEur(resultado.saldoNeto)}</p>
+            <p className="mt-1 text-[11px] text-green-700 dark:text-green-300">Después de impuestos estimados</p>
           </div>
           <div className="min-w-0 overflow-hidden rounded-lg bg-gradient-to-br from-blue-50 to-cyan-50 p-4 dark:from-blue-950 dark:to-cyan-950">
-            <p className="text-xs font-semibold uppercase text-blue-700 dark:text-blue-300">Intereses generados</p>
-            <p className="overflow-x-auto whitespace-nowrap text-2xl font-bold text-blue-900 dark:text-blue-100">{formatEur(resultado.intereses)}</p>
-            <p className="mt-1 text-xs text-blue-700 dark:text-blue-300">Antes de impuestos</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-blue-700 dark:text-blue-300">Intereses generados</p>
+            <p className="overflow-x-auto whitespace-nowrap text-xl font-bold text-blue-900 dark:text-blue-100">{formatEur(resultado.intereses)}</p>
+            <p className="mt-1 text-[11px] text-blue-700 dark:text-blue-300">Antes de impuestos</p>
           </div>
           <div className="min-w-0 overflow-hidden rounded-lg bg-gradient-to-br from-amber-50 to-orange-50 p-4 dark:from-amber-950 dark:to-orange-950">
-            <p className="text-xs font-semibold uppercase text-amber-700 dark:text-amber-300">Valor actual estimado</p>
-            <p className="overflow-x-auto whitespace-nowrap text-2xl font-bold text-amber-900 dark:text-amber-100">{formatEur(resultado.valorActual)}</p>
-            <p className="mt-1 text-xs text-amber-700 dark:text-amber-300">Descontando inflación</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 dark:text-amber-300">Valor actual estimado</p>
+            <p className="overflow-x-auto whitespace-nowrap text-xl font-bold text-amber-900 dark:text-amber-100">{formatEur(resultado.valorActual)}</p>
+            <p className="mt-1 text-[11px] text-amber-700 dark:text-amber-300">Descontando inflación</p>
           </div>
         </div>
 
         <div className="rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
-          <h2 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">Resumen de la simulación</h2>
+          <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-zinc-900 dark:text-zinc-100">Resumen de la simulación</h2>
           <dl className="space-y-2 text-sm">
             <div className="flex justify-between gap-4"><dt className="text-zinc-600 dark:text-zinc-400">Capital aportado</dt><dd className="font-semibold text-zinc-900 dark:text-zinc-100">{formatEur(resultado.capitalAportado)}</dd></div>
             <div className="flex justify-between gap-4"><dt className="text-zinc-600 dark:text-zinc-400">Saldo antes de impuestos</dt><dd className="font-semibold text-zinc-900 dark:text-zinc-100">{formatEur(resultado.saldoBruto)}</dd></div>
@@ -294,8 +294,8 @@ export default function CalculadoraInteresCompuesto() {
 
         <div className="space-y-3">
           <div className="flex items-center justify-between gap-4">
-            <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Crecimiento del capital</h2>
-            <span className="text-xs text-zinc-500 dark:text-zinc-400">Saldo acumulado por año</span>
+            <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-900 dark:text-zinc-100">Crecimiento del capital</h2>
+            <span className="text-[11px] text-zinc-500 dark:text-zinc-400">Saldo acumulado por año</span>
           </div>
             <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
               La línea representa la evolución estimada del saldo acumulado, sumando tus aportaciones y la rentabilidad anual seleccionada.
@@ -437,7 +437,7 @@ export default function CalculadoraInteresCompuesto() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Evolución anual</h2>
+          <h2 className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-900 dark:text-zinc-100">Evolución anual</h2>
           <div className="overflow-x-auto rounded-lg border border-zinc-200 dark:border-zinc-700">
             <table className="w-full min-w-[520px] text-left text-sm">
               <thead className="bg-zinc-100 text-xs uppercase text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">

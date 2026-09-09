@@ -17,6 +17,82 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    slug: "por-que-el-interes-compuesto-es-importante-y-por-que-deberias-empezar-joven",
+    title: "Por qué el interés compuesto es tan importante y por qué deberías empezar joven",
+    excerpt:
+      "Descubre cómo el tiempo, la constancia y la rentabilidad pueden convertir pequeñas cantidades en un ahorro mucho más grande si empiezas desde joven.",
+    description:
+      "Explicación detallada del interés compuesto, por qué funciona, cómo mejora con el tiempo y por qué empezar joven puede marcar una gran diferencia en tu futuro financiero.",
+    category: "Inversión",
+    publishedAt: "2026-09-09",
+    readingTime: "10 min de lectura",
+    toc: [
+      { id: "que-es", label: "Qué es el interés compuesto" },
+      { id: "por-que-importa", label: "Por qué importa tanto" },
+      { id: "empezar-joven", label: "Por qué empezar joven cambia todo" },
+      { id: "ejemplo-practico", label: "Ejemplo práctico con números" },
+      { id: "como-empezar", label: "Cómo empezar aunque sea con poco" },
+    ],
+    sections: [
+      {
+        id: "que-es",
+        heading: "Qué es el interés compuesto y por qué sorprende tanto",
+        content: [
+          "El interés compuesto es un concepto financiero muy sencillo en teoría, pero con un efecto enorme en la práctica: no solo ganas intereses sobre el dinero que inviertes, sino también sobre los intereses que ese dinero ya ha generado antes.",
+          "Es decir, el dinero empieza a trabajar para ti y, con el tiempo, el crecimiento no es lineal. Al principio puede parecer lento, pero a medida que pasan los años el efecto se acelera. Esa es la razón por la que el interés compuesto se considera una de las fuerzas más poderosas para construir patrimonio a largo plazo.",
+          "La clave está en entender una idea muy simple: no se trata de ganar mucho de golpe, sino de dejar que el tiempo haga el trabajo pesado. En finanzas, el tiempo suele ser más importante que la cantidad exacta que empieces a ahorrar. La constancia y la paciencia cuentan muchísimo más que intentar encontrar una gran rentabilidad de un día para otro."
+        ],
+      },
+      {
+        id: "por-que-importa",
+        heading: "Por qué el interés compuesto importa tanto en la vida real",
+        content: [
+          "La mayoría de la gente se centra en el ingreso mensual o en el sueldo. Eso es importante, pero el verdadero crecimiento patrimonial suele venir de la combinación de tres cosas: ahorrar, evitar gastar demasiado y dejar que el dinero crezca durante años.",
+          "El interés compuesto ayuda a convertir pequeñas decisiones diarias en grandes resultados a largo plazo. Por ejemplo, si cada mes apartas una cantidad aunque sea pequeña, no solo estarás aumentando tu saldo, sino que ese saldo también empezará a generar más saldo en el futuro.",
+          "Esto es especialmente útil para objetivos como la jubilación, una vivienda, la autonomía financiera o simplemente crear un colchón para imprevistos. Cuando el horizonte es amplio, el interés compuesto te da una ventaja enorme porque no necesita que el dinero sea enorme al inicio, sino que tenga tiempo y continuidad.",
+          "Una de las ideas más importantes es que el ahorro no tiene que ser espectacular para ser potente. Si se hace de forma constante, incluso una cuota modesta puede convertirse en una cantidad considerable años después. La clave es empezar antes y seguir sin interrupciones."
+        ],
+      },
+      {
+        id: "empezar-joven",
+        heading: "Por qué empezar joven cambia todo el resultado",
+        content: [
+          "Empezar joven no significa que tengas que invertir grandes cantidades o entender todo del mercado desde el principio. Significa que tienes más tiempo para que el efecto del interés compuesto se multiplique. Y ese tiempo es un recurso muy valioso, quizá incluso más valioso que el dinero inicial.",
+          "Imagínate dos personas. Una empieza a los 20 años aportando 100 euros al mes. La otra empieza a los 40. Ambas intentan llegar a un mismo objetivo. Aunque la que empiece más tarde podría aportar cantidades mucho mayores, normalmente tendrá que hacer un esfuerzo mucho más grande para alcanzar un resultado parecido, porque el tiempo disponible es mucho menor.",
+          "Esto no quiere decir que empezar tarde sea imposible. De hecho, no es imposible en absoluto. Pero sí significa que el coste de esperar es alto. Cuanto más tarde empieces, más sacrificio tendrás que hacer después para compensar la pérdida de años de crecimiento.",
+          "Por eso, una de las mejores decisiones financieras que puedes tomar cuando eres joven es crear el hábito del ahorro o la inversión. No hace falta cargar con complejidad ni buscar un producto perfecto desde el inicio. Basta con empezar con una cantidad razonable y revisar la estrategia con calma a lo largo del tiempo."
+        ],
+      },
+      {
+        id: "ejemplo-practico",
+        heading: "Un ejemplo sencillo para entenderlo bien",
+        content: [
+          "Vamos a poner un ejemplo práctico. Si una persona invierte 1.000 euros y además aporta 100 euros al mes durante 30 años con una rentabilidad anual media del 6%, el crecimiento no es simplemente 100 euros mensuales durante 30 años. El efecto compuesto hace que cada año esos intereses generen más intereses, y que las aportaciones periódicas también se conviertan en una base cada vez más grande.",
+          "Con el paso del tiempo, la diferencia entre ahorrar 100 euros al mes y 300 euros al mes puede parecer grande, pero la diferencia más destacada no viene solo de la cantidad, sino de que el dinero lleva años compuestos. Cuanto más tiempo esté invertido, más impacto tendrá ese crecimiento acumulativo.",
+          "Esto también explica por qué muchos ahorros de largo plazo no se sostienen solo en el capital inicial, sino en la repetición constante, la rentabilidad y la paciencia. La fórmula más efectiva no es intentar ganar más de golpe, sino dejar que el tiempo haga su trabajo con disciplina.",
+          "Si quieres probarlo tú mismo, puedes usar la calculadora de interés compuesto de Números claritos para simular cómo cambia el resultado según la aportación inicial, la rentabilidad anual y el número de años. Es una forma muy útil de visualizar cómo el tiempo y la constancia pueden transformar cantidades pequeñas en cifras mucho más interesantes.",
+          "En términos simples: el interés compuesto premia la continuidad. Si inviertes de forma periódica y mantienes el enfoque a largo plazo, el crecimiento se vuelve cada vez más visible. El secreto no está en la suerte, sino en la regularidad y en no retirar el dinero prematuramente."
+        ],
+      },
+      {
+        id: "como-empezar",
+        heading: "Cómo empezar aunque sea con poco dinero",
+        content: [
+          "El primer paso no es llegar a un gran capital, sino construir un hábito. Puedes empezar con una cantidad pequeña y aumentarla con el tiempo. La clave es la regularidad y la consistencia, no la perfección. Muchos pequeños aportes durante años pueden generar mucho más que una gran cantidad que no se mantiene.",
+          "Una buena estrategia suele ser automatizar el ahorro. Si cada mes transfieres una cantidad fija a una cuenta de ahorro o a un producto de inversión, la disciplina se vuelve mucho más fácil. Así evitas depender de la motivación del momento y conviertes la decisión en un hábito.",
+          "También es importante separar dos ideas: ahorrar para imprevistos y ahorrar para objetivos a medio y largo plazo. El interés compuesto funciona mejor cuando el dinero puede quedarse invertido durante años, y no se retira a la mínima señal de inestabilidad.",
+          "No hace falta obsesionarse con la perfección. Lo más útil es empezar con un plan realista, revisarlo periódicamente y dejar que el tiempo haga el resto. Cuando se entiende bien el interés compuesto, la decisión de empezar joven deja de parecer una opción apenas recomendable y pasa a ser una decisión muy inteligente.",
+          "En resumen, el interés compuesto no es magia, pero sí es una herramienta muy poderosa. Te recompensa por la paciencia, la disciplina y el tiempo. Y precisamente por eso, el mejor momento para empezar no es el futuro, sino ahora mismo."
+        ],
+      },
+    ],
+    relatedSlugs: [
+      "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
+      "diferencia-entre-12-y-14-pagas-cual-te-conviene-mas",
+      "retenciones-de-irpf-en-2026-tabla-de-tramos-y-como-te-afectan",
+    ],
+  },
+  {
     slug: "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
     title: "¿Cómo leer una nómina en España? Guía explicativa paso a paso",
     excerpt:

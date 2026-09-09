@@ -14,14 +14,9 @@ export default function InteresCompuestoPage() {
     <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-10 lg:space-y-12">
         <section className="overflow-hidden rounded-[32px] border border-zinc-700 bg-[#050b10] p-5 shadow-sm sm:p-7 lg:p-8">
-          <div className="mb-6 border-b border-zinc-700 pb-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
-              NÚMEROS CLARITOS / INTERÉS COMPUESTO
-            </p>
-          </div>
 
           <div className="max-w-5xl space-y-5">
-            <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
+            <h1 className="text-4xl font-black tracking-tight text-white">
               Calculadora de interés compuesto
             </h1>
             <p className="max-w-3xl text-lg leading-8 text-zinc-300">
