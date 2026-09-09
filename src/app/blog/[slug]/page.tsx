@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { posts } from "@/data/posts";
 
 export function generateStaticParams() {
@@ -49,9 +50,11 @@ export default async function BlogPostPage({
   const relatedPosts = posts.filter((item) => item.slug !== post.slug && post.relatedSlugs.includes(item.slug));
 
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-12 dark:bg-zinc-900">
-      <article className="mx-auto max-w-4xl space-y-8">
-        <header className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-8">
+    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+      <article className="mx-auto max-w-5xl space-y-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.title }]} />
+
+        <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-8">
           <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
             <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200">
               {post.category}

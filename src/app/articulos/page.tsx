@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { articulos } from "./articulos";
 
 export const metadata: Metadata = {
@@ -11,18 +12,22 @@ export const metadata: Metadata = {
 
 export default function ArticulosPage() {
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-12 dark:bg-zinc-900">
-      <div className="mx-auto max-w-4xl space-y-8">
-        <header className="max-w-2xl space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">
-            Números Claritos / Artículos
-          </p>
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-            Finanzas personales y nóminas, explicadas sin rodeos
-          </h1>
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Guías prácticas para entender tu sueldo, calcular el neto y tomar mejores decisiones con tu dinero.
-          </p>
+    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+      <div className="mx-auto max-w-6xl space-y-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Artículos" }]} />
+
+        <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
+          <div className="max-w-2xl space-y-3">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
+              Números Claritos / Artículos
+            </p>
+            <h1 className="text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
+              Finanzas personales y nóminas, explicadas sin rodeos
+            </h1>
+            <p className="text-zinc-600 dark:text-zinc-400">
+              Guías prácticas para entender tu sueldo, calcular el neto y tomar mejores decisiones con tu dinero.
+            </p>
+          </div>
         </header>
 
         <section aria-labelledby="ultimos-articulos" className="grid gap-4 md:grid-cols-3">

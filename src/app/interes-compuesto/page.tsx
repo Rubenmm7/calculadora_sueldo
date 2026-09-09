@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import CalculadoraInteresCompuesto from "@/components/CalculadoraInteresCompuesto";
 
 export const metadata: Metadata = {
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
 
 export default function InteresCompuestoPage() {
   return (
-    <main className="flex-1 bg-zinc-50 px-4 py-12 dark:bg-zinc-900">
-      <div className="mx-auto max-w-4xl space-y-12">
+    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+      <div className="mx-auto max-w-5xl space-y-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Interés Compuesto" }]} />
+
         <CalculadoraInteresCompuesto />
 
-        <article className="mx-auto max-w-2xl space-y-8 border-t border-zinc-200 pt-10 pb-4 dark:border-zinc-800">
+        <article className="mx-auto max-w-3xl space-y-8 rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <section className="space-y-4">
             <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
               ¿Qué es el interés compuesto?

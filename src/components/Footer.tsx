@@ -1,25 +1,34 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-zinc-200 bg-white px-4 py-6 dark:border-zinc-800 dark:bg-zinc-950">
       <nav
-        aria-label="Información legal"
-        className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
+        aria-label="Navegación principal"
+        className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
       >
-        <Link href="/blog" className="hover:underline">
+        <Link href="/" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Home
+        </Link>
+        <Link href="/blog" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
           Blog
         </Link>
-        <Link href="/privacidad" className="hover:underline">
-          Política de Privacidad
+        <Link href="/" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Calculadora de Sueldo
         </Link>
-        <Link href="/aviso-legal" className="hover:underline">
-          Aviso Legal y Contacto
+        <Link href="/interes-compuesto" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Interés Compuesto
         </Link>
-        <Link href="/cookies" className="hover:underline">
-          Política de Cookies
+        <Link href="/privacidad" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Privacidad
         </Link>
-        <Link href="/contacto" className="hover:underline">
+        <Link href="/aviso-legal" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Aviso Legal
+        </Link>
+        <Link href="/cookies" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
+          Cookies
+        </Link>
+        <Link href="/contacto" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
           Contacto
         </Link>
       </nav>

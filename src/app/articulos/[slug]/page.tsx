@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { articulos } from "../articulos";
 
 export function generateStaticParams() {
@@ -43,34 +44,38 @@ export default async function ArticuloPage({
   if (!articulo) notFound();
 
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-12 dark:bg-zinc-900">
-      <article className="mx-auto max-w-2xl rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-10">
-        <header className="space-y-4 border-b border-zinc-200 pb-6 dark:border-zinc-800">
+    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+      <article className="mx-auto max-w-4xl space-y-8">
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Artículos", href: "/articulos" }, { label: articulo.title }]} />
+
+        <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-10">
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-zinc-500 dark:text-zinc-400">
             <span>{articulo.category}</span>
             <span>{articulo.readTime}</span>
             <time dateTime="2026-09-03">Actualizado el {articulo.updatedAt}</time>
           </div>
-          <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
+          <h1 className="mt-5 text-3xl font-black tracking-tight text-zinc-900 dark:text-zinc-50 md:text-5xl">
             {articulo.title}
           </h1>
-          <p className="text-lg leading-7 text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-lg leading-7 text-zinc-600 dark:text-zinc-400">
             {articulo.description}
           </p>
         </header>
 
-        <div className="prose prose-zinc mt-8 max-w-none dark:prose-invert">
-          {articulo.paragraphs.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          {articulo.points && (
-            <ul>
-              {articulo.points.map((point) => <li key={point}>{point}</li>)}
-            </ul>
-          )}
+        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-8">
+          <div className="prose prose-zinc mt-2 max-w-none dark:prose-invert">
+            {articulo.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            {articulo.points && (
+              <ul>
+                {articulo.points.map((point) => <li key={point}>{point}</li>)}
+              </ul>
+            )}
+          </div>
         </div>
 
-        <nav className="mt-8 flex flex-wrap justify-between gap-3 border-t border-zinc-200 pt-6 text-sm dark:border-zinc-800">
+        <nav className="mt-8 flex flex-wrap justify-between gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
           <Link href="/articulos" className="font-medium text-zinc-700 hover:underline dark:text-zinc-300">
             ← Todos los artículos
           </Link>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
@@ -11,18 +12,22 @@ export const metadata: Metadata = {
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-zinc-50 px-4 py-12 dark:bg-zinc-900">
+    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-8">
-        <header className="max-w-3xl space-y-4">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
-            Números Claritos / Blog
-          </p>
-          <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
-            Explicaciones claras sobre nóminas, IRPF y finanzas personales
-          </h1>
-          <p className="text-lg text-zinc-600 dark:text-zinc-400">
-            Artículos prácticos para entender tu sueldo, tu retención y tus decisiones financieras sin complicarte la vida.
-          </p>
+        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
+
+        <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
+          <div className="max-w-3xl space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
+              Números Claritos / Blog
+            </p>
+            <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-zinc-50">
+              Explicaciones claras sobre nóminas, IRPF y finanzas personales
+            </h1>
+            <p className="text-lg text-zinc-600 dark:text-zinc-400">
+              Artículos prácticos para entender tu sueldo, tu retención y tus decisiones financieras sin complicarte la vida.
+            </p>
+          </div>
         </header>
 
         <section aria-label="Artículos del blog" className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
