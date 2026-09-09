@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Números Claritos
 
-## Getting Started
+Sitio web de finanzas personales y nóminas en España, centrado en herramientas prácticas para calcular sueldo neto, IRPF y crecimiento de inversiones. La web combina contenido editorial, calculadoras interactivas y guías explicativas en un diseño claro, minimalista y accesible.
 
-First, run the development server:
+## Descripción
+
+Números Claritos es una web orientada a usuarios que quieren entender mejor:
+
+- su salario bruto y neto
+- la retención del IRPF
+- la Seguridad Social en la nómina
+- el interés compuesto y la evolución del ahorro
+- conceptos fiscales y financieros explicados de forma cercana
+
+La aplicación usa Next.js en App Router y está pensada para ser rápida, SEO-friendly y fácil de mantener.
+
+## Stack principal
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS
+- App Router de Next.js
+
+## Funcionalidades principales
+
+- Calculadora de sueldo neto e IRPF en España
+- Calculadora de interés compuesto
+- Blog con artículos educativos
+- Páginas legales y de privacidad
+- Contacto y soporte
+- SEO básico con metadata y rutas estáticas
+
+## Estructura del proyecto
+
+```bash
+.
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── blog/
+│   │   ├── contacto/
+│   │   ├── interes-compuesto/
+│   │   ├── privacidad/
+│   │   ├── cookies/
+│   │   ├── aviso-legal/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   └── ...
+│   ├── components/
+│   │   ├── Calculadora.tsx
+│   │   ├── CalculadoraInteresCompuesto.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Footer.tsx
+│   │   └── ...
+│   └── data/
+│       └── posts.ts
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── eslint.config.mjs
+├── postcss.config.mjs
+├── README.md
+└── public/
+```
+
+## Requisitos
+
+- Node.js 18 o superior
+- npm
+
+## Inicio rápido
+
+1. Instala las dependencias:
+
+```bash
+npm install
+```
+
+2. Inicia el entorno de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Abre la app en tu navegador:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Comandos útiles
 
-## Learn More
+```bash
+# Desarrollo
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# Build de producción
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Iniciar build compilada
+npm run start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Linting
+npm run lint
+```
 
-## Deploy on Vercel
+## Despliegue
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Este proyecto está preparado para desplegarse en plataformas como Vercel, que es la opción recomendada para aplicaciones Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Recomendación de despliegue
+
+```bash
+npm run build
+```
+
+Y luego publicar la app en Vercel o en cualquier hosting compatible con Node.js/Next.js.
+
+## Notas de desarrollo
+
+- El contenido principal del blog está centralizado en `src/data/posts.ts`.
+- Las páginas principales están bajo `src/app/` usando el sistema de rutas de Next.js App Router.
+- Las calculadoras y widgets reutilizables viven en `src/components/`.
+- El mantenimiento de estilos se hace con Tailwind CSS.
+
+## Licencia
+
+Este proyecto se usa para un sitio propio y no incluye una licencia pública definida por defecto.
+
+Si quieres, puedo dejarte también una versión de README más “profesional” tipo portfolio o una versión más corta orientada a GitHub.
