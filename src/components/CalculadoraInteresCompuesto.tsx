@@ -201,13 +201,18 @@ export default function CalculadoraInteresCompuesto() {
   };
 
   return (
-    <section className="mx-auto w-full max-w-4xl rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <header className="mb-6 space-y-1">
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Calculadora de interés compuesto
-        </h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
-          Simula cómo pueden crecer tus ahorros con una inversión inicial y aportaciones periódicas.
+    <section className="mx-auto min-h-0 w-full max-w-6xl rounded-[32px] border border-zinc-200 bg-white p-5 shadow-sm ring-1 ring-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:ring-zinc-800 sm:min-h-[620px] sm:p-7 lg:p-8">
+      <header className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div className="space-y-2">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-700 dark:text-emerald-300">
+            Simulador
+          </p>
+          <h2 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-3xl">
+            Calculadora de interés compuesto
+          </h2>
+        </div>
+        <p className="max-w-xl text-sm text-zinc-600 dark:text-zinc-400">
+          Simula cómo pueden crecer tus ahorros con una inversión inicial, aportaciones periódicas y efecto del tiempo.
         </p>
       </header>
 
