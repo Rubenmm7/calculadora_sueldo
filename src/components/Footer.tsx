@@ -8,7 +8,7 @@ export default function Footer() {
         className="mx-auto flex max-w-5xl flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm text-zinc-600 dark:text-zinc-400"
       >
         <Link href="/" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
-          Home
+          Inicio
         </Link>
         <Link href="/blog" className="hover:text-emerald-700 hover:underline dark:hover:text-emerald-300">
           Blog

@@ -34,7 +34,11 @@ export default function Navbar() {
       const scrollingUp = currentScrollY < lastScrollY;
       const nearTop = currentScrollY < 40;
 
-      setShowNav(scrollingUp || nearTop);
+      if (isOpen) {
+        setShowNav(true);
+      } else {
+        setShowNav(scrollingUp || nearTop);
+      }
       setShowScrollTop(currentScrollY > 350);
       lastScrollY = currentScrollY;
     };
@@ -85,7 +89,10 @@ export default function Navbar() {
               type="button"
               aria-label="Abrir menú"
               aria-expanded={isOpen}
-              onClick={() => setIsOpen((value) => !value)}
+              onClick={() => {
+                setShowNav(true);
+                setIsOpen((value) => !value);
+              }}
               className="inline-flex items-center justify-center rounded-lg border border-zinc-200 px-3 py-2 text-zinc-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-emerald-700 dark:hover:text-emerald-300 sm:hidden"
             >
               <span className="flex flex-col gap-1.5">
