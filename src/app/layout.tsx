@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import CookieBanner from "@/components/CookieBanner";
@@ -69,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Footer />
         <CookieBanner />
+        <GoogleAnalytics gaId="G-G65LRV4G7W" />
       </body>
     </html>
   );
