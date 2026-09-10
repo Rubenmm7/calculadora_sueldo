@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import { articulos } from "../articulos";
 
 export function generateStaticParams() {
@@ -46,8 +45,6 @@ export default async function ArticuloPage({
   return (
     <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <article className="mx-auto max-w-4xl space-y-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Artículos", href: "/articulos" }, { label: articulo.title }]} />
-
         <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-10">
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-zinc-500 dark:text-zinc-400">
             <span>{articulo.category}</span>

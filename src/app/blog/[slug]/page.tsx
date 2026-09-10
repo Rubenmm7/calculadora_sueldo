@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import { posts } from "@/data/posts";
 
 export function generateStaticParams() {
@@ -52,8 +51,6 @@ export default async function BlogPostPage({
   return (
     <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <article className="mx-auto max-w-5xl space-y-8">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Blog", href: "/blog" }, { label: post.title }]} />
-
         <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-8">
           <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
             <span className="rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-semibold text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200">
@@ -117,7 +114,7 @@ export default async function BlogPostPage({
                       {related.category}
                     </p>
                     <h3 className="mt-2 text-lg font-bold text-zinc-900 dark:text-zinc-50">
-                      <Link href={`/blog/${related.slug}`} className="hover:text-emerald-700 dark:hover:text-emerald-300">
+                      <Link href={`/blog/${related.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
                         {related.title}
                       </Link>
                     </h3>
@@ -129,10 +126,10 @@ export default async function BlogPostPage({
         </div>
 
         <nav className="flex flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/blog" className="inline-flex items-center gap-2 font-semibold text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-zinc-300 dark:hover:text-emerald-400">
-            Volver al blog
+          <Link href="/blog" className="inline-flex items-center gap-2 font-semibold text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-zinc-300 dark:hover:text-emerald-300">
+            ← Volver al blog
           </Link>
-          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400">
+          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300">
             Calcular mi nómina
           </Link>
         </nav>

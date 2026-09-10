@@ -120,7 +120,7 @@ export default function Home() {
               </div>
               <Link
                 href="/blog"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400"
+                className="inline-flex items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300"
               >
                 Ver todos los artículos en el Blog
               </Link>
@@ -135,7 +135,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="mt-4 text-xl font-bold leading-tight text-zinc-900 dark:text-zinc-50">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-emerald-700 dark:hover:text-emerald-300">
+                    <Link href={`/blog/${post.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
                       {post.title}
                     </Link>
                   </h3>

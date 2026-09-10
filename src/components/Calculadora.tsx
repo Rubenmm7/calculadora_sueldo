@@ -351,14 +351,6 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
 
   return (
     <section className="w-full rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-      <header className="mb-6 space-y-1">
-        <h1 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-          Calculadora bruto a neto
-        </h1>
-        <p className="text-xs text-zinc-600 dark:text-zinc-400">
-          Estimación orientativa para España (régimen general).
-        </p>
-      </header>
 
       <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
         {/* UBICACIÓN */}
