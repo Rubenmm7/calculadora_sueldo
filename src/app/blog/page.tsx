@@ -49,8 +49,11 @@ export default function BlogPage() {
 
               <div className="mt-5 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
                 <time dateTime={post.publishedAt}>Actualizado {post.publishedAt}</time>
-                <Link href={`/blog/${post.slug}`} className="font-semibold text-emerald-700 hover:underline dark:text-emerald-300">
-                  Leer artículo →
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400"
+                >
+                  Leer artículo
                 </Link>
               </div>
             </article>

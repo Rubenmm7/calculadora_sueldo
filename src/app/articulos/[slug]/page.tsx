@@ -76,11 +76,11 @@ export default async function ArticuloPage({
         </div>
 
         <nav className="mt-8 flex flex-wrap justify-between gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-          <Link href="/articulos" className="font-medium text-zinc-700 hover:underline dark:text-zinc-300">
-            ← Todos los artículos
+          <Link href="/articulos" className="inline-flex items-center gap-2 font-medium text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-zinc-300 dark:hover:text-emerald-400">
+            Todos los artículos
           </Link>
-          <Link href="/" className="font-semibold text-emerald-700 hover:underline dark:text-emerald-300">
-            Calcular mi sueldo neto →
+          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400">
+            Calcular mi sueldo neto
           </Link>
         </nav>
       </article>

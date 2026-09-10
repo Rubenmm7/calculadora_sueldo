@@ -81,8 +81,8 @@ export default function InteresCompuestoPage() {
           <p className="text-xs leading-5 text-zinc-500 dark:text-zinc-400">
             La información de esta página no constituye asesoramiento financiero. Consulta a un profesional antes de tomar decisiones de inversión.
           </p>
-          <Link href="/" className="inline-flex text-sm font-semibold text-emerald-700 hover:underline dark:text-emerald-300">
-            ← Volver a la calculadora de sueldo
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400">
+            Volver a la calculadora de sueldo
           </Link>
         </article>
       </div>
