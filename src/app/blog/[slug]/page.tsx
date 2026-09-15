@@ -3,6 +3,20 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts } from "@/data/posts";
 
+function renderInlineLinks(paragraph: string) {
+  return paragraph.split(/(\[[^\]]+\]\(\/[^)]+\))/g).map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\((\/[^)]+)\)$/);
+
+    return match ? (
+      <Link key={`${match[2]}-${index}`} href={match[2]} className="font-semibold text-emerald-700 underline underline-offset-2 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-200">
+        {match[1]}
+      </Link>
+    ) : (
+      part
+    );
+  });
+}
+
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
 }
@@ -103,7 +117,7 @@ export default async function BlogPostPage({
                   </h2>
                   <div className="mt-4 space-y-4 text-base leading-8 text-zinc-700 dark:text-zinc-300">
                     {section.content.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                      <p key={paragraph}>{renderInlineLinks(paragraph)}</p>
                     ))}
                   </div>
                 </section>

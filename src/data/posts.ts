@@ -508,7 +508,7 @@ export const posts: Post[] = [
         heading: "El complemento al 100% y el efecto del IRPF",
         content: [
           "Muchos convenios colectivos, contratos o políticas internas mejoran el mínimo legal y complementan la baja hasta el 100% del salario, de la base de cotización o de determinados conceptos. No todas las mejoras son iguales: pueden operar desde el primer día, solo tras cierta antigüedad, durante un número limitado de días o únicamente en contingencias profesionales. Busca el artículo de incapacidad temporal de tu convenio.",
-          "El IRPF no desaparece por estar de baja. La prestación y los complementos pueden estar sujetos a retención, y la retención de la nómina puede ajustarse cuando cambia la previsión de ingresos anual. Cobrar menos neto un mes no demuestra por sí solo que el tipo de IRPF haya aumentado: revisa por separado el bruto, la base, la prestación, las deducciones y el porcentaje retenido.",
+          "El IRPF no desaparece por estar de baja. La prestación y los complementos pueden estar sujetos a retención, y la retención de la nómina puede ajustarse cuando cambia la previsión de ingresos anual. Cobrar menos neto un mes no demuestra por sí solo que el tipo de IRPF haya aumentado: revisa por separado el bruto, la base, la prestación, las deducciones y el porcentaje retenido. Usa la [Calculadora de Sueldo Neto](/) para comprobar cuánto se reduce tu nómina mensual en distintos escenarios.",
         ],
       },
       {
@@ -597,7 +597,7 @@ export const posts: Post[] = [
         content: [
           "Empieza por descargar los datos fiscales y contrástalos con tus certificados de empresa, banco, alquiler, donativos y planes de empleo. Después revisa domicilio fiscal y comunidad autónoma, datos de hijos y discapacidad, inmuebles, rendimientos del trabajo y retenciones. No confirmes la propuesta hasta entender por qué sale a pagar o devolver; una devolución elevada tampoco prueba que todo esté correcto.",
           "Evita enviar documentación sensible por canales no oficiales y consulta a un profesional si tienes actividades económicas, varias viviendas, herencias, rentas del extranjero o una situación familiar compleja. Planificar durante el año suele ser más útil que buscar deducciones a última hora: organiza justificantes y comunica los cambios que afecten a tus retenciones en cuanto se produzcan.",
-          "Una buena práctica es conservar los justificantes en una carpeta por ejercicio y nombrarlos de forma clara: alquiler, donativos, guardería, aportaciones y certificados bancarios. Así podrás responder a cualquier comprobación y comparar la declaración con años anteriores. Si una deducción no aparece, no la añadas por intuición: confirma primero el requisito, el límite y la casilla correspondiente en la información oficial del ejercicio.",
+          "Una buena práctica es conservar los justificantes en una carpeta por ejercicio y nombrarlos de forma clara: alquiler, donativos, guardería, aportaciones y certificados bancarios. Así podrás responder a cualquier comprobación y comparar la declaración con años anteriores. Si una deducción no aparece, no la añadas por intuición: confirma primero el requisito, el límite y la casilla correspondiente en la información oficial del ejercicio. Para entender cómo funciona la progresividad, lee [el mito del salto de tramo del IRPF](/blog/el-mito-del-salto-de-tramo-del-irpf).",
           "Si presentas la renta con otra persona, acordad antes quién aplica cada mínimo o deducción compartida. Una revisión conjunta de los datos evita duplicidades, omisiones y decisiones tomadas solo por el resultado provisional de una pantalla.",
         ],
       },
@@ -686,6 +686,9 @@ export const posts: Post[] = [
       "diferencia-entre-12-y-14-pagas-cual-te-conviene-mas",
       "el-mito-del-salto-de-tramo-del-irpf",
     ],
-    cta: { label: "Usar la calculadora de interés compuesto", href: "/interes-compuesto" },
+    cta: {
+      label: "Calcula cuánto crecerá tu fondo de emergencia a 5 años",
+      href: "/interes-compuesto",
+    },
   },
 ];
