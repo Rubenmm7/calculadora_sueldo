@@ -15,6 +15,7 @@ export type Post = {
     content: string[];
   }>;
   relatedSlugs: string[];
+  cta?: { label: string; href: string };
 };
 
 export const posts: Post[] = [
@@ -447,5 +448,244 @@ export const posts: Post[] = [
       "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
       "diferencia-entre-12-y-14-pagas-cual-te-conviene-mas",
     ],
+  },
+  {
+    slug: "cuanto-se-cobra-en-una-baja-medica-porcentajes-calculo",
+    title: "¿Cuánto se cobra en una baja médica en 2026? Porcentajes y cálculo del sueldo",
+    seoTitle: "Baja Médica 2026: Cuánto Cobras y Cómo se Calcula",
+    seoDescription:
+      "Descubre cuánto se cobra durante una baja médica, los porcentajes aplicables y cómo revisar el complemento y el IRPF en tu nómina.",
+    excerpt:
+      "Te explicamos qué parte del sueldo se cobra durante una incapacidad temporal, cómo se calcula la base reguladora y qué puede mejorar tu convenio.",
+    description:
+      "Guía práctica sobre el cobro de una baja médica, las diferencias entre contingencias comunes y profesionales, y su efecto en la nómina.",
+    category: "Nóminas",
+    publishedAt: "2026-09-15",
+    readingTime: "9 min de lectura",
+    toc: [
+      { id: "que-es-it", label: "Qué es una baja médica" },
+      { id: "comun-profesional", label: "Enfermedad común o accidente laboral" },
+      { id: "porcentajes", label: "Porcentajes por día de baja" },
+      { id: "base-reguladora", label: "Cómo se calcula el importe" },
+      { id: "convenio-irpf", label: "Convenio, nómina e IRPF" },
+      { id: "revisar", label: "Qué revisar en tu nómina" },
+    ],
+    sections: [
+      {
+        id: "que-es-it",
+        heading: "Qué significa estar de baja médica",
+        content: [
+          "Una baja médica es una situación de incapacidad temporal: durante un tiempo no puedes realizar tu trabajo y recibes asistencia sanitaria. No equivale automáticamente a cobrar el salario íntegro. La cantidad que aparece en la nómina depende del origen de la baja, de tu base reguladora, de los días de ausencia y de lo que mejore tu convenio colectivo.",
+          "Conviene separar dos preguntas. La primera es qué prestación reconoce la Seguridad Social; la segunda, si tu empresa debe completar esa cuantía. La nómina puede mezclar salario de días trabajados, prestación de incapacidad temporal, complementos y deducciones. Por eso comparar solo el neto de un mes con el anterior no siempre explica qué ha ocurrido.",
+        ],
+      },
+      {
+        id: "comun-profesional",
+        heading: "Enfermedad común, accidente no laboral y accidente de trabajo",
+        content: [
+          "La contingencia común incluye una enfermedad ordinaria, como una gripe o una intervención no vinculada al empleo, y el accidente no laboral. En estos casos hay, con carácter general, un periodo inicial sin subsidio de incapacidad temporal. Para una enfermedad común también se exige normalmente un periodo previo de cotización; el accidente, laboral o no, y la enfermedad profesional tienen reglas distintas sobre este requisito.",
+          "Un accidente de trabajo o una enfermedad profesional se consideran contingencias profesionales. El día de la baja suele ser retribuido por la empresa y el subsidio nace al día siguiente. Esta diferencia importa mucho: la protección mínima empieza antes y el porcentaje general es mayor. La calificación concreta debe constar en el parte y puede requerir la intervención de la mutua o del INSS.",
+        ],
+      },
+      {
+        id: "porcentajes",
+        heading: "Del día 1 al 3, del 4 al 20 y desde el día 21",
+        content: [
+          "En enfermedad común o accidente no laboral, la regla general es clara: los días 1 a 3 no generan subsidio de incapacidad temporal; del día 4 al 20, ambos incluidos, se cobra el 60% de la base reguladora; desde el día 21, el 75%. Esos porcentajes no se aplican directamente a tu sueldo neto ni necesariamente al bruto mensual completo.",
+          "En accidente laboral o enfermedad profesional, la prestación general es del 75% de la base reguladora desde el día siguiente al de la baja. No confundas esta pauta con casos especiales —por ejemplo, determinadas situaciones de embarazo o donación de órganos— que tienen reglas propias. Consulta siempre el parte y tu convenio antes de trasladar un ejemplo general a tu caso.",
+        ],
+      },
+      {
+        id: "base-reguladora",
+        heading: "Cómo se calcula lo que cobrarás",
+        content: [
+          "El punto de partida es la base reguladora, que en muchas bajas de trabajadores por cuenta ajena se obtiene a partir de la base de cotización del mes anterior dividida entre los días a los que corresponde esa cotización. Por eso dos personas con el mismo salario pactado pueden recibir importes distintos si tienen complementos, variables, cambios de jornada o bases de cotización diferentes.",
+          "Imagina una base reguladora diaria de 60 euros en una contingencia común. Del día 4 al 20, la referencia sería el 60%, es decir, 36 euros diarios de subsidio; desde el día 21, 45 euros. Es solo un ejemplo de mecánica: la nómina final puede incluir días trabajados, pagas extra prorrateadas y mejoras empresariales, además de cotizaciones y retenciones.",
+        ],
+      },
+      {
+        id: "convenio-irpf",
+        heading: "El complemento al 100% y el efecto del IRPF",
+        content: [
+          "Muchos convenios colectivos, contratos o políticas internas mejoran el mínimo legal y complementan la baja hasta el 100% del salario, de la base de cotización o de determinados conceptos. No todas las mejoras son iguales: pueden operar desde el primer día, solo tras cierta antigüedad, durante un número limitado de días o únicamente en contingencias profesionales. Busca el artículo de incapacidad temporal de tu convenio.",
+          "El IRPF no desaparece por estar de baja. La prestación y los complementos pueden estar sujetos a retención, y la retención de la nómina puede ajustarse cuando cambia la previsión de ingresos anual. Cobrar menos neto un mes no demuestra por sí solo que el tipo de IRPF haya aumentado: revisa por separado el bruto, la base, la prestación, las deducciones y el porcentaje retenido.",
+        ],
+      },
+      {
+        id: "revisar",
+        heading: "Qué comprobar antes de reclamar",
+        content: [
+          "Revisa estos datos: la fecha de baja y alta, la contingencia indicada, los días trabajados, la base de cotización del mes anterior, el porcentaje aplicado y el complemento de convenio. Guarda partes médicos, nóminas y cualquier comunicación de la empresa o mutua. Si ves una diferencia, pide primero un desglose por escrito a nóminas o a recursos humanos.",
+          "Esta guía sirve para entender la estructura del cobro, no sustituye el cálculo de tu empresa, mutua o asesoría laboral. Una baja larga, una jornada parcial, un contrato temporal o un cambio de salario introducen matices. Con una nómina desglosada y tu convenio delante podrás hacer una consulta mucho más precisa y detectar mejor un posible error.",
+          "También conviene anotar el importe habitual de tus gastos fijos mientras dure la baja. Si prevés una reducción temporal de ingresos, prioriza vivienda, suministros, alimentación y cuotas esenciales antes de comprometer ahorro o amortizaciones extraordinarias. Planificar este ajuste con antelación reduce el estrés y evita interpretar una nómina puntual como si fuera el resultado definitivo de todo el proceso de incapacidad temporal.",
+          "Si la baja coincide con una paga extra, vacaciones, incentivos o una revisión salarial, pregunta expresamente cómo lo regula el convenio. Esos conceptos pueden alterar el recibo sin que cambien los porcentajes básicos de la prestación.",
+        ],
+      },
+    ],
+    relatedSlugs: [
+      "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
+      "contingencias-comunes-y-desempleo-que-te-descuentan-de-la-nomina",
+      "retenciones-de-irpf-en-2026-tabla-de-tramos-y-como-te-afectan",
+    ],
+    cta: { label: "Calcular mi sueldo neto", href: "/" },
+  },
+  {
+    slug: "deducciones-irpf-gastos-desgravar-renta",
+    title: "Deducciones en el IRPF: Gastos que puedes desgravar para pagar menos impuestos",
+    seoTitle: "Deducciones IRPF: Cómo Pagar Menos en la Renta",
+    seoDescription:
+      "Revisa las deducciones de IRPF por alquiler, planes de empleo, familia y comunidad autónoma antes de confirmar el borrador de la renta.",
+    excerpt:
+      "Aprende qué deducciones conviene revisar en el borrador de la renta y por qué la situación familiar y tu comunidad autónoma cambian el resultado.",
+    description:
+      "Guía divulgativa para identificar deducciones estatales y autonómicas habituales en el IRPF sin confundirlas con gastos deducibles.",
+    category: "IRPF",
+    publishedAt: "2026-09-15",
+    readingTime: "10 min de lectura",
+    toc: [
+      { id: "deducir", label: "Qué significa desgravar" },
+      { id: "alquiler", label: "Alquiler de vivienda" },
+      { id: "empleo", label: "Planes de empleo" },
+      { id: "autonomicas", label: "Deducciones autonómicas" },
+      { id: "familia", label: "Hijos y discapacidad" },
+      { id: "borrador", label: "Cómo revisar el borrador" },
+    ],
+    sections: [
+      {
+        id: "deducir",
+        heading: "Desgravar no es restar cualquier gasto",
+        content: [
+          "En una conversación cotidiana se usa " + '"desgravar"' + " para casi todo, pero en la renta conviene distinguir conceptos. Una reducción disminuye la base sobre la que se calcula el impuesto; una deducción reduce directamente la cuota resultante; y un gasto deducible depende del tipo de rendimiento declarado. El efecto final de cada figura no es idéntico, aunque todas puedan rebajar el resultado.",
+          "La regla práctica es no dar por deducible un pago solo porque esté relacionado con tu vivienda, familia o ahorro. La normativa fija requisitos, límites y documentación. Además, algunas ventajas pertenecen al tramo estatal y otras al autonómico. El borrador ayuda, pero es una propuesta elaborada con datos disponibles; confirmarlo sin revisarlo puede dejar fuera información que la Agencia Tributaria no conoce por completo.",
+        ],
+      },
+      {
+        id: "alquiler",
+        heading: "Alquiler de vivienda: revisa fecha, comunidad y requisitos",
+        content: [
+          "La deducción estatal por alquiler de vivienda habitual quedó limitada a contratos celebrados antes de 2015 y sujetos a condiciones de renta, por lo que no es una ventaja general para nuevos contratos. Sin embargo, muchas comunidades autónomas mantienen deducciones propias para arrendatarios, a menudo ligadas a edad, ingresos, familia numerosa, discapacidad, municipio o importe del alquiler.",
+          "Guarda contrato, recibos o transferencias identificables, referencia catastral cuando proceda y el NIF del arrendador. No basta con pagar en efectivo ni con asumir que cualquier habitación alquilada cumple los requisitos de vivienda habitual. Revisa la normativa de tu comunidad para el ejercicio declarado, porque porcentajes, topes y condiciones pueden variar cada año.",
+        ],
+      },
+      {
+        id: "empleo",
+        heading: "Aportaciones a planes de empleo y ahorro para jubilación",
+        content: [
+          "Las aportaciones a sistemas de previsión social pueden reducir la base imponible dentro de los límites legales. En la práctica, los planes de pensiones de empleo y las contribuciones empresariales tienen un tratamiento que conviene revisar en el certificado anual de la empresa. No confundas la aportación realizada con el ahorro fiscal: el beneficio depende de tu tipo marginal y de los límites aplicables.",
+          "Antes de aportar solo por la deducción, valora el horizonte de jubilación, la liquidez del producto, las comisiones y la tributación futura al rescatarlo. La fiscalidad es una pieza de la decisión, no la única. Conserva los certificados y comprueba que las cantidades figuran correctamente en los datos fiscales; si hay una diferencia, solicita la corrección antes de presentar la declaración.",
+        ],
+      },
+      {
+        id: "autonomicas",
+        heading: "Deducciones autonómicas habituales",
+        content: [
+          "Las comunidades autónomas pueden aprobar deducciones por circunstancias muy variadas. Son habituales las relacionadas con nacimiento o adopción, gastos educativos, cuidado de menores o dependientes, vivienda habitual, donativos, inversión en empresas nuevas, compra de material escolar o residencia en zonas rurales. Que una deducción exista en otra comunidad no significa que puedas aplicarla donde resides fiscalmente.",
+          "Busca el apartado autonómico del manual de renta y verifica tres datos: residencia a 31 de diciembre, nivel de renta y justificantes. Algunos beneficios se prorratean entre declarantes, exigen declaración individual o tienen incompatibilidades. Haz una lista de posibles deducciones antes de abrir el borrador: así podrás comprobarlas una a una, en lugar de confiar en que aparezcan automáticamente.",
+        ],
+      },
+      {
+        id: "familia",
+        heading: "Hijos, discapacidad y situación familiar",
+        content: [
+          "Tener hijos o familiares con discapacidad no funciona siempre como una deducción estándar. Los mínimos personales y familiares reducen la parte de renta sometida a gravamen, mientras que las deducciones por maternidad, familia numerosa, ascendiente o descendiente con discapacidad tienen requisitos y, en ciertos casos, abono anticipado. La convivencia, custodia, edad, rentas propias y grado de discapacidad son datos relevantes.",
+          "Revisa que el estado civil, los descendientes, las fechas de nacimiento, la custodia y los grados de discapacidad estén actualizados. Si ambos progenitores pueden aplicar un mínimo, hay reglas de reparto; si existe declaración conjunta, también cambian los cálculos. El borrador no sustituye la comprobación de certificados, títulos y datos familiares, especialmente después de un nacimiento, separación o cambio de domicilio.",
+        ],
+      },
+      {
+        id: "borrador",
+        heading: "Una rutina útil para revisar el borrador",
+        content: [
+          "Empieza por descargar los datos fiscales y contrástalos con tus certificados de empresa, banco, alquiler, donativos y planes de empleo. Después revisa domicilio fiscal y comunidad autónoma, datos de hijos y discapacidad, inmuebles, rendimientos del trabajo y retenciones. No confirmes la propuesta hasta entender por qué sale a pagar o devolver; una devolución elevada tampoco prueba que todo esté correcto.",
+          "Evita enviar documentación sensible por canales no oficiales y consulta a un profesional si tienes actividades económicas, varias viviendas, herencias, rentas del extranjero o una situación familiar compleja. Planificar durante el año suele ser más útil que buscar deducciones a última hora: organiza justificantes y comunica los cambios que afecten a tus retenciones en cuanto se produzcan.",
+          "Una buena práctica es conservar los justificantes en una carpeta por ejercicio y nombrarlos de forma clara: alquiler, donativos, guardería, aportaciones y certificados bancarios. Así podrás responder a cualquier comprobación y comparar la declaración con años anteriores. Si una deducción no aparece, no la añadas por intuición: confirma primero el requisito, el límite y la casilla correspondiente en la información oficial del ejercicio.",
+          "Si presentas la renta con otra persona, acordad antes quién aplica cada mínimo o deducción compartida. Una revisión conjunta de los datos evita duplicidades, omisiones y decisiones tomadas solo por el resultado provisional de una pantalla.",
+        ],
+      },
+    ],
+    relatedSlugs: [
+      "retenciones-de-irpf-en-2026-tabla-de-tramos-y-como-te-afectan",
+      "el-mito-del-salto-de-tramo-del-irpf",
+      "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
+    ],
+    cta: { label: "Estimar mi sueldo neto", href: "/" },
+  },
+  {
+    slug: "cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia",
+    title: "Cuentas Remuneradas vs. Fondos Monetarios: Dónde rentabilizar tu dinero ahorrado",
+    seoTitle: "Cuentas o Fondos Monetarios: Fondo de Emergencia",
+    seoDescription:
+      "Compara cuentas remuneradas y fondos monetarios para tu fondo de emergencia: liquidez, riesgo, fiscalidad y rentabilidad esperada.",
+    excerpt:
+      "Comparamos cuentas remuneradas y fondos monetarios para decidir dónde guardar el colchón de seguridad sin perder de vista la liquidez y el riesgo.",
+    description:
+      "Guía para crear un fondo de emergencia de 3 a 6 meses y elegir entre una cuenta remunerada y un fondo monetario con criterio.",
+    category: "Inversión",
+    publishedAt: "2026-09-15",
+    readingTime: "9 min de lectura",
+    toc: [
+      { id: "fondo", label: "Qué es el fondo de emergencia" },
+      { id: "cuenta", label: "Cómo funciona una cuenta remunerada" },
+      { id: "monetario", label: "Qué es un fondo monetario" },
+      { id: "liquidez", label: "Liquidez y riesgo" },
+      { id: "fiscalidad", label: "Fiscalidad de intereses y fondos" },
+      { id: "eleccion", label: "Cómo elegir" },
+    ],
+    sections: [
+      {
+        id: "fondo",
+        heading: "El fondo de emergencia va antes que la inversión a largo plazo",
+        content: [
+          "Un fondo de emergencia es dinero reservado para gastos inesperados: una reparación urgente, una avería, una baja de ingresos o una factura médica. Como orientación frecuente, se plantea reunir entre tres y seis meses de gastos esenciales. La cifra adecuada depende de la estabilidad de tus ingresos, personas a cargo, deudas, vivienda y facilidad para encontrar empleo.",
+          "Su objetivo principal no es batir la inflación ni maximizar la rentabilidad. Es evitar que un imprevisto te obligue a endeudarte caro o vender inversiones de largo plazo en mal momento. Separa este colchón de las vacaciones, la entrada de una vivienda o la cartera de inversión. Cuando cada euro tiene una función, resulta más sencillo decidir qué nivel de riesgo y disponibilidad aceptar.",
+        ],
+      },
+      {
+        id: "cuenta",
+        heading: "Cuenta remunerada: interés visible y disponibilidad inmediata",
+        content: [
+          "Una cuenta remunerada paga intereses por el saldo mantenido, normalmente con liquidación mensual o trimestral. Su principal ventaja para el fondo de emergencia es la operativa: puedes consultar el saldo, recibir una transferencia o pagar un recibo sin vender participaciones. En las entidades adheridas, los depósitos y saldos cubiertos cuentan con la protección del fondo de garantía dentro de los límites legales.",
+          "Lee la letra pequeña antes de comparar tipos. Algunas ofertas tienen un saldo máximo remunerado, exigen nómina, tarjeta, recibos o permanencia, y otras reducen el interés pasado un periodo promocional. El tipo anunciado suele ser bruto; calcula el resultado neto y revisa si hay comisiones. Una cuenta sencilla y accesible puede ser preferible a una oferta alta que te obligue a cumplir condiciones poco útiles.",
+        ],
+      },
+      {
+        id: "monetario",
+        heading: "Fondo monetario: alternativa de bajo riesgo, no una cuenta",
+        content: [
+          "Un fondo monetario invierte en instrumentos del mercado monetario de corta duración y alta calidad, sin exposición a renta variable, materias primas ni divisa según su categoría regulatoria. Busca preservar el capital y obtener una rentabilidad vinculada a los tipos de corto plazo. Aun así, no es un depósito: su valor liquidativo puede variar y no existe una garantía de rentabilidad ni de capital.",
+          "Su interés aparece incorporado en el valor de las participaciones, no como un abono fijo en cuenta. Antes de contratarlo, revisa el documento de datos fundamentales, comisiones, política de inversión, divisa, plazo de reembolso y riesgos. Dos fondos llamados monetarios pueden tener costes y carteras distintas. La comparación correcta no se hace solo con la rentabilidad reciente, sino con el producto completo.",
+        ],
+      },
+      {
+        id: "liquidez",
+        heading: "Liquidez: inmediato no significa lo mismo que diario",
+        content: [
+          "Para una urgencia que debes pagar hoy, la cuenta remunerada suele ganar: el dinero está disponible de inmediato mediante tarjeta o transferencia, salvo incidencias operativas. Un fondo monetario acostumbra a permitir reembolsos diarios, pero debes solicitar la venta, esperar al valor liquidativo aplicable y recibir el efectivo según el plazo de la gestora y la comercializadora. No es la misma experiencia de liquidez.",
+          "Una solución razonable puede ser escalonada. Mantén una primera capa para uno o dos meses de gastos en cuenta y valora una segunda capa en un producto monetario si entiendes sus plazos y riesgos. Evita destinar al fondo de emergencia dinero que podrías necesitar mañana para una cuota esencial. La mejor asignación es la que puedes usar sin fricción cuando el imprevisto ya ha ocurrido.",
+        ],
+      },
+      {
+        id: "fiscalidad",
+        heading: "Fiscalidad: intereses, retención y traspasos",
+        content: [
+          "Los intereses de una cuenta remunerada son rendimientos del capital mobiliario. La entidad suele practicar una retención del 19% al abonarlos, aunque la tributación final depende de la base del ahorro y de tu declaración. La retención no es un regalo fiscal: es un pago a cuenta. Guarda el certificado bancario para comprobar los datos fiscales de la renta.",
+          "En los fondos de inversión, por regla general, la ganancia o pérdida se declara al reembolsar. Los traspasos entre fondos que cumplan los requisitos pueden permitir diferir la tributación, pero esa ventaja no convierte al fondo en equivalente a una cuenta ni elimina el riesgo. Consulta las condiciones del producto y tu situación fiscal; si tienes dudas, no tomes la decisión solo por el tratamiento tributario.",
+        ],
+      },
+      {
+        id: "eleccion",
+        heading: "Cómo tomar la decisión sin perseguir el último tipo",
+        content: [
+          "Hazte cuatro preguntas: ¿cuánto dinero necesito disponible hoy?, ¿qué plazo de reembolso tolero?, ¿acepto pequeñas variaciones de valor?, ¿qué condiciones y comisiones estoy asumiendo? Para el núcleo del colchón, la simplicidad y la disponibilidad pesan mucho. Para el dinero que no prevés usar de inmediato, un monetario puede tener sentido si comprendes que no ofrece garantía de capital.",
+          "La rentabilidad cambia con los tipos de interés y nunca debe analizarse aislada. Calcula escenarios prudentes, actualiza tus gastos esenciales y revisa el fondo de emergencia tras un cambio de empleo, vivienda o familia. Esta información es educativa y no una recomendación personalizada de inversión. Prioriza una estrategia que te permita dormir tranquilo, no solo un porcentaje atractivo en una comparativa.",
+          "Por ejemplo, si tus gastos básicos son 1.500 euros al mes y eliges un objetivo de cuatro meses, tu referencia inicial sería 6.000 euros. Puedes construirla con aportaciones automáticas, sin necesidad de invertir todo de golpe. Cuando alcances el objetivo, revisa si el incremento de alquiler, hipoteca o responsabilidades familiares exige actualizarlo. La disciplina de mantener el colchón separado vale tanto como la rentabilidad que obtengas.",
+        ],
+      },
+    ],
+    relatedSlugs: [
+      "por-que-el-interes-compuesto-es-importante-y-por-que-deberias-empezar-joven",
+      "diferencia-entre-12-y-14-pagas-cual-te-conviene-mas",
+      "el-mito-del-salto-de-tramo-del-irpf",
+    ],
+    cta: { label: "Usar la calculadora de interés compuesto", href: "/interes-compuesto" },
   },
 ];

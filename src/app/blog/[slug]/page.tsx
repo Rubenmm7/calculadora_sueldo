@@ -110,6 +110,21 @@ export default async function BlogPostPage({
               ))}
             </div>
 
+            {post.cta && (
+              <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-900 dark:bg-emerald-950/30">
+                <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">Haz tus números</h2>
+                <p className="mt-2 text-sm leading-6 text-zinc-700 dark:text-zinc-300">
+                  Convierte esta información en una estimación práctica para tu caso.
+                </p>
+                <Link
+                  href={post.cta.href}
+                  className="mt-4 inline-flex min-h-[44px] items-center rounded-xl bg-emerald-700 px-4 py-2 text-sm font-semibold text-white no-underline transition hover:bg-emerald-800"
+                >
+                  {post.cta.label}
+                </Link>
+              </aside>
+            )}
+
             <section className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
               <h2 className="text-xl font-bold text-zinc-900 dark:text-zinc-50">Artículos relacionados</h2>
               <div className="mt-4 grid gap-4 md:grid-cols-3">
