@@ -106,7 +106,6 @@ function calcularNomina(
   tipoSS: number,
   minimoPer: number,
   complementos: number,
-  tienePagasExtra: boolean,
 ): ResultadoNomina {
   const brutoMensual = brutoAnual / 12;
   const baseSsMensual = Math.min(brutoMensual, BASE_MAXIMA_SS_MENSUAL);
@@ -175,7 +174,7 @@ function Tooltip({ text }: { text: string }) {
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
         onClick={() => setShow(!show)}
-        className="ml-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-zinc-300 text-xs font-bold text-zinc-700 hover:bg-zinc-400 dark:bg-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-500"
+        className="ml-1 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-zinc-300 text-xs font-bold text-zinc-700 hover:bg-zinc-400 dark:bg-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-500"
         aria-label="Información"
       >
         ?
@@ -194,7 +193,7 @@ export default function Calculadora() {
   const [brutoInput, setBrutoInput] = useState("30000");
   const [pagas, setPagas] = useState<NumeroPagas>(14);
   const [estadoCivil, setEstadoCivil] = useState<EstadoCivil>("soltero");
-  const [tipoSS, setTipoSS] = useState(TOTAL_SS_TRABAJADOR);
+  const [tipoSS] = useState(TOTAL_SS_TRABAJADOR);
   const [customMinimo, setCustomMinimo] = useState("");
   const [bonusAnual, setBonusAnual] = useState("0");
   const [incentivos, setIncentivos] = useState("0");
@@ -218,8 +217,8 @@ export default function Calculadora() {
       : Math.max(0, Number(customMinimo) || 0);
 
   const resultado = useMemo(
-    () => calcularNomina(brutoAnual, pagas, tipoSS, minimoPersonal, complementos, tienePagasExtra),
-    [brutoAnual, pagas, tipoSS, minimoPersonal, complementos, tienePagasExtra],
+    () => calcularNomina(brutoAnual, pagas, tipoSS, minimoPersonal, complementos),
+    [brutoAnual, pagas, tipoSS, minimoPersonal, complementos],
   );
 
   const obtenerContenidoExportacion = () => {
@@ -365,7 +364,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             <select
               value={comunidad}
               onChange={(e) => setComunidad(e.target.value as ComunidadAutonoma)}
-              className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+              className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
             >
               <option value="andalucia">Andalucía</option>
               <option value="aragon">Aragón</option>
@@ -409,9 +408,9 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                 value={formatMiles(brutoInput)}
                 onChange={(e) => setBrutoInput(e.target.value.replace(/\D/g, ""))}
                 aria-label="Salario bruto anual en euros"
-                className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-10 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+                className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 pr-10 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
               />
-              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-500 dark:text-zinc-400">
+              <span className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-zinc-700 dark:text-zinc-300">
                 €
               </span>
             </div>
@@ -433,7 +432,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   step={100}
                   value={formatMiles(bonusAnual)}
                   onChange={(e) => setBonusAnual(handleFormattedNumber(e.target.value))}
-                  className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+                  className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
               <label className="block space-y-1">
@@ -446,7 +445,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   step={100}
                   value={formatMiles(incentivos)}
                   onChange={(e) => setIncentivos(handleFormattedNumber(e.target.value))}
-                  className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+                  className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
               <label className="block space-y-1">
@@ -459,7 +458,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   step={100}
                   value={formatMiles(horasExtras)}
                   onChange={(e) => setHorasExtras(handleFormattedNumber(e.target.value))}
-                  className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+                  className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
               <label className="block space-y-1">
@@ -472,7 +471,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                   step={100}
                   value={formatMiles(gratificaciones)}
                   onChange={(e) => setGratificaciones(handleFormattedNumber(e.target.value))}
-                  className="w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+                  className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-2 py-1 text-sm text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
                 />
               </label>
             </div>
@@ -493,7 +492,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               {([12, 14] as const).map((n) => (
                 <label
                   key={n}
-                  className={`flex cursor-pointer items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium transition ${
+                  className={`flex min-h-[44px] cursor-pointer items-center justify-center rounded-lg border px-3 py-2 text-sm font-medium transition ${
                     pagas === n
                       ? "border-zinc-900 bg-zinc-900 text-white dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900"
                       : "border-zinc-300 text-zinc-700 dark:border-zinc-700 dark:text-zinc-300 hover:border-zinc-400 dark:hover:border-zinc-600"
@@ -513,7 +512,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             </div>
           </fieldset>
 
-          <label className="flex items-center gap-2">
+          <label className="flex min-h-[44px] items-center gap-2">
             <input
               type="checkbox"
               checked={tienePagasExtra}
@@ -533,7 +532,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             <select
               value={estadoCivil}
               onChange={(e) => setEstadoCivil(e.target.value as EstadoCivil)}
-              className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+              className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
             >
               <option value="soltero">Soltero/a sin hijos</option>
               <option value="casado">Casado/a</option>
@@ -568,7 +567,7 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
                 </label>
               </div>
             </div>
-            <p className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
+            <p className="mt-2 text-xs text-zinc-700 dark:text-zinc-300">
               Total: {(tipoSS * 100).toFixed(2)}%
             </p>
           </div>
@@ -585,9 +584,9 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               placeholder={MINIMO_PERSONAL_POR_ESTADO[estadoCivil].toString()}
               value={formatMiles(customMinimo)}
               onChange={(e) => setCustomMinimo(handleFormattedNumber(e.target.value))}
-              className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
+              className="min-h-[44px] w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-zinc-900 outline-none ring-zinc-400 focus:ring-2 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-50"
             />
-            <p className="text-[11px] text-zinc-500 dark:text-zinc-400">
+            <p className="text-[11px] text-zinc-700 dark:text-zinc-300">
               Dejar vacío para usar el valor predeterminado ({minimoPersonal}€)
             </p>
           </label>
@@ -628,45 +627,45 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             Desglose de Ingresos
           </h3>
-          <dl className="space-y-2 rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
+          <div className="space-y-2 rounded-lg border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-700 dark:bg-zinc-900">
             <div className="flex justify-between">
-              <dt className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base mensual</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
+              <p className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base mensual</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.brutoMensual)}
-              </dd>
+              </p>
             </div>
             <div className="flex justify-between">
-              <dt className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base anual</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
+              <p className="text-sm text-zinc-700 dark:text-zinc-300">Bruto base anual</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.brutoAnual)}
-              </dd>
+              </p>
             </div>
             {complementos > 0 && (
               <>
                 <div className="border-t border-zinc-200 pt-2 dark:border-zinc-700"></div>
                 <div className="flex justify-between">
-                  <dt className="text-sm text-zinc-700 dark:text-zinc-300">Complementos totales</dt>
-                  <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
+                  <p className="text-sm text-zinc-700 dark:text-zinc-300">Complementos totales</p>
+                  <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                     {formatEur(complementos)}
-                  </dd>
+                  </p>
                 </div>
                 {Math.max(0, Number(bonusAnual) || 0) > 0 && (
-                  <div className="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
+                  <div className="flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
                     <span>  Bonus: {formatEur(Math.max(0, Number(bonusAnual) || 0))}</span>
                   </div>
                 )}
                 {Math.max(0, Number(incentivos) || 0) > 0 && (
-                  <div className="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
+                  <div className="flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
                     <span>  Incentivos: {formatEur(Math.max(0, Number(incentivos) || 0))}</span>
                   </div>
                 )}
                 {Math.max(0, Number(horasExtras) || 0) > 0 && (
-                  <div className="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
+                  <div className="flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
                     <span>  Horas Extras: {formatEur(Math.max(0, Number(horasExtras) || 0))}</span>
                   </div>
                 )}
                 {Math.max(0, Number(gratificaciones) || 0) > 0 && (
-                  <div className="flex justify-between text-xs text-zinc-600 dark:text-zinc-400">
+                  <div className="flex justify-between text-xs text-zinc-700 dark:text-zinc-300">
                     <span>  Gratificaciones: {formatEur(Math.max(0, Number(gratificaciones) || 0))}</span>
                   </div>
                 )}
@@ -674,12 +673,12 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
               </>
             )}
             <div className="flex justify-between font-bold">
-              <dt className="text-zinc-900 dark:text-zinc-100">Total Ingresos</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-zinc-900 dark:text-zinc-100">
+              <p className="text-zinc-900 dark:text-zinc-100">Total Ingresos</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.totalIngresoAnual)}
-              </dd>
+              </p>
             </div>
-          </dl>
+          </div>
         </div>
 
         {/* Desglose de Deducciones - SS Detallado */}
@@ -687,47 +686,47 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             Seguridad Social (Desglose Detallado)
           </h3>
-          <dl className="space-y-2 rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-950">
+          <div className="space-y-2 rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-950">
             <div className="flex justify-between text-sm">
-              <dt className="text-orange-700 dark:text-orange-300">Desempleo (1.55%)</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
+              <p className="text-orange-700 dark:text-orange-300">Desempleo (1.55%)</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssDesempleo / 12)} / mes
-              </dd>
+              </p>
             </div>
-            <div className="flex justify-between text-xs text-orange-600 dark:text-orange-400">
+            <div className="flex justify-between text-xs text-orange-700 dark:text-orange-300">
               <span></span>
               <span>{formatEur(resultado.ssDesempleo)} / año</span>
             </div>
 
             <div className="flex justify-between text-sm">
-              <dt className="text-orange-700 dark:text-orange-300">Contingencias Comunes (4.70%)</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
+              <p className="text-orange-700 dark:text-orange-300">Contingencias Comunes (4.70%)</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssContingencias / 12)} / mes
-              </dd>
+              </p>
             </div>
-            <div className="flex justify-between text-xs text-orange-600 dark:text-orange-400">
+            <div className="flex justify-between text-xs text-orange-700 dark:text-orange-300">
               <span></span>
               <span>{formatEur(resultado.ssContingencias)} / año</span>
             </div>
 
             <div className="flex justify-between text-sm">
-              <dt className="text-orange-700 dark:text-orange-300">Formación Profesional (0.60%)</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
+              <p className="text-orange-700 dark:text-orange-300">Formación Profesional (0.60%)</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssFormacion / 12)} / mes
-              </dd>
+              </p>
             </div>
-            <div className="flex justify-between text-xs text-orange-600 dark:text-orange-400">
+            <div className="flex justify-between text-xs text-orange-700 dark:text-orange-300">
               <span></span>
               <span>{formatEur(resultado.ssFormacion)} / año</span>
             </div>
 
             <div className="flex justify-between text-sm">
-              <dt className="text-orange-700 dark:text-orange-300">Accidentes de Trabajo (0.00%)</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
+              <p className="text-orange-700 dark:text-orange-300">Accidentes de Trabajo (0.00%)</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssAccidentes / 12)} / mes
-              </dd>
+              </p>
             </div>
-            <div className="flex justify-between text-xs text-orange-600 dark:text-orange-400">
+            <div className="flex justify-between text-xs text-orange-700 dark:text-orange-300">
               <span></span>
               <span>{formatEur(resultado.ssAccidentes)} / año</span>
             </div>
@@ -735,16 +734,16 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
             <div className="my-2 border-t border-orange-200 dark:border-orange-800"></div>
 
             <div className="flex justify-between font-bold">
-              <dt className="text-orange-900 dark:text-orange-100">Total SS</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-orange-900 dark:text-orange-100">
+              <p className="text-orange-900 dark:text-orange-100">Total SS</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-orange-900 dark:text-orange-100">
                 {formatEur(resultado.ssMensual)} / mes
-              </dd>
+              </p>
             </div>
             <div className="flex justify-between text-xs font-bold text-orange-900 dark:text-orange-100">
               <span></span>
               <span>{formatEur(resultado.ssAnual)} / año</span>
             </div>
-          </dl>
+          </div>
         </div>
 
         {/* Desglose de IRPF */}
@@ -752,23 +751,23 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             IRPF (Impuesto sobre la Renta)
           </h3>
-          <dl className="space-y-2 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950">
+          <div className="space-y-2 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-950">
             <div className="flex justify-between text-sm">
-              <dt className="text-red-700 dark:text-red-300">
+              <p className="text-red-700 dark:text-red-300">
                 IRPF ({resultado.tipoIrpfEfectivo.toFixed(2)}% efectivo)
-              </dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-red-900 dark:text-red-100">
+              </p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-red-900 dark:text-red-100">
                 {formatEur(resultado.irpfMensual)} / mes
-              </dd>
+              </p>
             </div>
-            <div className="flex justify-between text-xs text-red-600 dark:text-red-400">
+            <div className="flex justify-between text-xs text-red-700 dark:text-red-300">
               <span></span>
               <span>{formatEur(resultado.irpfAnual)} / año</span>
             </div>
             <p className="text-xs text-red-700 dark:text-red-300 mt-2">
               Retención aproximada según estado civil: {(RETENCIONES_IRPF[estadoCivil] * 100).toFixed(1)}%
             </p>
-          </dl>
+          </div>
         </div>
 
         {/* Resumen Final */}
@@ -776,43 +775,43 @@ Neto Anual: ${formatEur(resultado.netoAnual)}`;
           <h3 className="mb-3 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             Resumen Final
           </h3>
-          <dl className="space-y-2 rounded-lg border border-zinc-300 bg-zinc-100 p-4 dark:border-zinc-600 dark:bg-zinc-800">
+          <div className="space-y-2 rounded-lg border border-zinc-300 bg-zinc-100 p-4 dark:border-zinc-600 dark:bg-zinc-800">
             <div className="flex justify-between">
-              <dt className="text-sm font-medium text-zinc-800 dark:text-zinc-200">Total ingresos</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
+              <p className="text-sm font-medium text-zinc-800 dark:text-zinc-200">Total ingresos</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold text-zinc-900 dark:text-zinc-100">
                 {formatEur(resultado.totalIngresoAnual)}
-              </dd>
+              </p>
             </div>
             <div className="flex justify-between text-red-700 dark:text-red-300">
-              <dt className="text-sm font-medium">− Total deducciones</dt>
-              <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold">
+              <p className="text-sm font-medium">− Total deducciones</p>
+              <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right font-semibold">
                 {formatEur(resultado.totalDeducciones)}
-              </dd>
+              </p>
             </div>
             <div className="border-t-2 border-zinc-300 dark:border-zinc-600 pt-2">
               <div className="flex justify-between">
-                <dt className="text-base font-bold text-green-700 dark:text-green-300">
+                <p className="text-base font-bold text-green-700 dark:text-green-300">
                   = Neto anual
-                </dt>
-                <dd className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-base font-bold text-green-700 dark:text-green-300">
+                </p>
+                <p className="min-w-0 max-w-[60%] overflow-x-auto whitespace-nowrap text-right text-base font-bold text-green-700 dark:text-green-300">
                   {formatEur(resultado.netoAnual)}
-                </dd>
+                </p>
               </div>
             </div>
-          </dl>
+          </div>
         </div>
 
         {/* Botones Exportar */}
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           <button
             onClick={exportarTXT}
-            className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 transition"
+            className="min-h-[44px] min-w-[44px] rounded-lg bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600"
           >
             📄 Descargar TXT
           </button>
           <button
             onClick={exportarPDF}
-            className="rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600 transition"
+            className="min-h-[44px] min-w-[44px] rounded-lg bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600"
           >
             📕 Descargar PDF
           </button>

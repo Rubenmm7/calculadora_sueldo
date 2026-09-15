@@ -20,40 +20,25 @@ function applyConsent(value: CookieConsent) {
 }
 
 export default function CookieBanner() {
-  const [consent, setConsent] = useState<CookieConsent | null>(null);
-  const [ready, setReady] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      const saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved === "accepted" || saved === "rejected") {
-        setConsent(saved);
-        applyConsent(saved);
-      }
-      setReady(true);
-    }, 0);
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved !== "accepted" && saved !== "rejected") return;
 
-    return () => window.clearTimeout(timer);
+    applyConsent(saved);
+    const frame = window.requestAnimationFrame(() => setIsVisible(false));
+
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   function save(value: CookieConsent) {
     window.localStorage.setItem(STORAGE_KEY, value);
-    setConsent(value);
     applyConsent(value);
+    setIsVisible(false);
   }
 
-  useEffect(() => {
-    if (!ready || consent) {
-      document.body.style.paddingBottom = "";
-      return;
-    }
-    document.body.style.paddingBottom = "12rem";
-    return () => {
-      document.body.style.paddingBottom = "";
-    };
-  }, [ready, consent]);
-
-  if (!ready || consent) return null;
+  if (!isVisible) return null;
 
   return (
     <div
@@ -71,14 +56,14 @@ export default function CookieBanner() {
         </h2>
         <p
           id="cookie-desc"
-          className="text-sm text-zinc-600 dark:text-zinc-400"
+          className="text-sm text-zinc-700 dark:text-zinc-300"
         >
           Usamos cookies propias necesarias para el funcionamiento del sitio y,
           si lo aceptas, cookies de proveedores de terceros como{" "}
           <strong>Google AdSense</strong> para servir anuncios basados en tus
           visitas previas a este y otros sitios web. Puedes aceptarlas,
           rechazarlas o consultar la{" "}
-          <Link href="/cookies" className="underline">
+          <Link href="/cookies" className="inline-flex min-h-[44px] items-center underline">
             Política de Cookies
           </Link>
           .
@@ -87,14 +72,14 @@ export default function CookieBanner() {
           <button
             type="button"
             onClick={() => save("accepted")}
-            className="rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white dark:bg-zinc-100 dark:text-zinc-900"
+            className="min-h-[44px] min-w-[44px] rounded-lg bg-zinc-900 px-4 py-3 text-sm font-medium text-white dark:bg-zinc-100 dark:text-zinc-900"
           >
             Aceptar
           </button>
           <button
             type="button"
             onClick={() => save("rejected")}
-            className="rounded-lg border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-800 dark:border-zinc-700 dark:text-zinc-200"
+            className="min-h-[44px] min-w-[44px] rounded-lg border border-zinc-300 px-4 py-3 text-sm font-medium text-zinc-800 dark:border-zinc-700 dark:text-zinc-200"
           >
             Rechazar
           </button>

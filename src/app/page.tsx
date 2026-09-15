@@ -1,5 +1,4 @@
 ﻿import type { Metadata } from "next";
-import Script from "next/script";
 import Link from "next/link";
 import Calculadora from "@/components/Calculadora";
 import { posts } from "@/data/posts";
@@ -24,27 +23,6 @@ export const metadata: Metadata = {
       "Calcula gratis tu salario neto mensual y anual según las retenciones de IRPF y normativa laboral en España. ¡Sin registros y al instante!",
   },
 };
-
-const toolCards = [
-  {
-    title: "Calculadora de interés compuesto",
-    description: "Simula cómo crecen tus ahorros con aportaciones periódicas, rentabilidad y plazo.",
-    href: "/interes-compuesto",
-    tag: "Ahorro",
-  },
-  {
-    title: "Calculadora de retenciones IRPF",
-    description: "Estima la parte de tu nómina que se retiene por IRPF y cómo afecta a tu salario neto.",
-    href: "/",
-    tag: "IRPF",
-  },
-  {
-    title: "Guías del Blog",
-    description: "Analiza nóminas, 12 o 14 pagas y la normativa fiscal con contenido editorial claro.",
-    href: "/blog",
-    tag: "Blog",
-  },
-];
 
 const faqItems = [
   {
@@ -92,10 +70,9 @@ export default function Home() {
 
   return (
     <>
-      <Script
+      <script
         id="faq-schema"
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
@@ -134,7 +111,7 @@ export default function Home() {
               </div>
               <Link
                 href="/blog"
-                className="inline-flex items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300"
+                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300"
               >
                 Ver todos los artículos en el Blog
               </Link>
@@ -143,24 +120,24 @@ export default function Home() {
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
               {featuredPosts.map((post) => (
                 <article key={post.slug} className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-5 transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
-                  <div className="flex items-center justify-between gap-3 text-[11px] font-medium uppercase tracking-[0.12em] text-zinc-500 dark:text-zinc-400">
+                  <div className="flex items-center justify-between gap-3 text-[11px] font-medium uppercase tracking-[0.12em] text-zinc-700 dark:text-zinc-300">
                     <span>{post.category}</span>
                     <span>{post.readingTime}</span>
                   </div>
 
                   <h3 className="mt-4 text-xl font-bold leading-tight text-zinc-900 dark:text-zinc-50">
-                    <Link href={`/blog/${post.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
+                    <Link href={`/blog/${post.slug}`} className="inline-flex min-h-[44px] items-center transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
                       {post.title}
                     </Link>
                   </h3>
 
-                  <p className="mt-3 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{post.excerpt}</p>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-zinc-700 dark:text-zinc-300">{post.excerpt}</p>
 
-                  <div className="mt-5 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
+                  <div className="mt-5 flex items-center justify-between text-xs text-zinc-700 dark:text-zinc-300">
                     <time dateTime={post.publishedAt}>Actualizado {post.publishedAt}</time>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400"
+                      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400"
                     >
                       Leer
                     </Link>
@@ -179,7 +156,7 @@ export default function Home() {
                 Cómo entender la nómina y el cálculo del IRPF en España
               </h2>
 
-              <div className="mt-5 space-y-5 text-base leading-7 text-zinc-600 dark:text-zinc-300">
+              <div className="mt-5 space-y-5 text-base leading-7 text-zinc-700 dark:text-zinc-300">
                 <p>
                   En España, el sueldo bruto es la base sobre la que se calculan las cotizaciones a la Seguridad Social y la retención del IRPF. La diferencia entre ese importe y el neto se debe a dos factores clave: la carga social y el impuesto sobre la renta.
                 </p>
@@ -194,15 +171,15 @@ export default function Home() {
               <ul className="mt-6 grid gap-3 sm:grid-cols-3">
                 <li className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
                   <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Bruto</p>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Salario pactado antes de deducciones.</p>
+                  <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Salario pactado antes de deducciones.</p>
                 </li>
                 <li className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
                   <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Seguridad Social</p>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Cotizaciones obligatorias sobre la base de cotización.</p>
+                  <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Cotizaciones obligatorias sobre la base de cotización.</p>
                 </li>
                 <li className="rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
                   <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-50">Neto</p>
-                  <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">Cantidad final que llega a tu cuenta cada mes.</p>
+                  <p className="mt-2 text-sm text-zinc-700 dark:text-zinc-300">Cantidad final que llega a tu cuenta cada mes.</p>
                 </li>
               </ul>
             </article>
@@ -245,10 +222,10 @@ export default function Home() {
                   open={index === 0}
                   className="group rounded-2xl border border-zinc-200 bg-zinc-50 p-4 text-left dark:border-zinc-800 dark:bg-zinc-900"
                 >
-                  <summary className="cursor-pointer list-none text-base font-semibold text-zinc-900 dark:text-zinc-50">
+                  <summary className="flex min-h-[44px] cursor-pointer list-none items-center text-base font-semibold text-zinc-900 dark:text-zinc-50">
                     {item.question}
                   </summary>
-                  <p className="mt-3 text-sm leading-6 text-zinc-600 dark:text-zinc-300">{item.answer}</p>
+                  <p className="mt-3 text-sm leading-6 text-zinc-700 dark:text-zinc-300">{item.answer}</p>
                 </details>
               ))}
             </div>

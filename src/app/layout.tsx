@@ -11,11 +11,15 @@ const siteUrl = "https://numerosclaritos.com";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -70,8 +74,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <Footer />
         <CookieBanner />
-        <GoogleAnalytics gaId="G-G65LRV4G7W" />
       </body>
+      <GoogleAnalytics gaId="G-G65LRV4G7W" />
     </html>
   );
 }

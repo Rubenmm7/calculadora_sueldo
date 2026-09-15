@@ -19,7 +19,7 @@ export default function Navbar() {
     const active = isActive(href);
 
     return [
-      "rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200",
+      "inline-flex min-h-[44px] items-center rounded-full px-3 py-2 text-sm font-medium transition-colors duration-200",
       active
         ? "bg-emerald-100 text-emerald-800 ring-1 ring-emerald-200 dark:bg-emerald-950/60 dark:text-emerald-200 dark:ring-emerald-900"
         : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800 dark:hover:text-zinc-50",
@@ -79,7 +79,7 @@ export default function Navbar() {
           <div className="relative flex items-center justify-between gap-3">
             <Link
               href="/"
-              className="text-left text-2xl font-black tracking-tight text-zinc-900 hover:text-emerald-700 dark:text-zinc-100 dark:hover:text-emerald-300 sm:text-[2rem]"
+              className="inline-flex min-h-[44px] items-center text-left text-2xl font-black tracking-tight text-zinc-900 hover:text-emerald-700 dark:text-zinc-100 dark:hover:text-emerald-300 sm:text-[2rem]"
             >
               Números claritos
             </Link>
@@ -93,7 +93,7 @@ export default function Navbar() {
                 setShowNav(true);
                 setIsOpen((value) => !value);
               }}
-              className="inline-flex items-center justify-center rounded-lg border border-zinc-200 px-3 py-2 text-zinc-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-emerald-700 dark:hover:text-emerald-300 sm:hidden"
+              className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-zinc-200 px-3 py-2 text-zinc-700 transition hover:border-emerald-300 hover:text-emerald-700 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-emerald-700 dark:hover:text-emerald-300 sm:hidden"
             >
               <span className="flex flex-col gap-1.5">
                 <span className="block h-0.5 w-5 rounded-full bg-current" />
