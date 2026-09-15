@@ -18,18 +18,23 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: post.title,
-    description: post.excerpt,
+    title: post.seoTitle,
+    description: post.seoDescription,
     alternates: { canonical: `/blog/${post.slug}` },
     openGraph: {
       type: "article",
       url: `https://numerosclaritos.com/blog/${post.slug}`,
-      title: post.title,
-      description: post.excerpt,
+      title: post.seoTitle,
+      description: post.seoDescription,
       publishedTime: post.publishedAt,
       modifiedTime: post.publishedAt,
-      siteName: "Números claritos",
+      siteName: "Números Claritos",
       locale: "es_ES",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.seoTitle,
+      description: post.seoDescription,
     },
   };
 }

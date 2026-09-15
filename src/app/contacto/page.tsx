@@ -2,8 +2,9 @@
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contacto y atención al usuario",
-  description: "Contacta con Números claritos para resolver dudas, comunicar errores o enviar sugerencias sobre nóminas e IRPF.",
+  title: "Contacto y Atención al Usuario",
+  description: "Contacta con Números Claritos para resolver dudas, comunicar errores o enviar sugerencias sobre la calculadora de sueldo e IRPF.",
+  alternates: { canonical: "/contacto" },
 };
 
 export default function ContactoPage() {

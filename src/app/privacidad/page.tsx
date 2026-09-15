@@ -4,6 +4,8 @@ import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
   title: "Política de Privacidad",
+  description: "Consulta cómo Números Claritos trata y protege tus datos personales al utilizar la calculadora y los servicios del sitio.",
+  alternates: { canonical: "/privacidad" },
 };
 
 export default function PrivacidadPage() {

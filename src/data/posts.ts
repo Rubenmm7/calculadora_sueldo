@@ -1,6 +1,8 @@
 export type Post = {
   slug: string;
   title: string;
+  seoTitle: string;
+  seoDescription: string;
   excerpt: string;
   description: string;
   category: string;
@@ -19,6 +21,9 @@ export const posts: Post[] = [
   {
     slug: "por-que-el-interes-compuesto-es-importante-y-por-que-deberias-empezar-joven",
     title: "Por qué el interés compuesto es tan importante y por qué deberías empezar joven",
+    seoTitle: "Interés Compuesto: Cómo Hacer Crecer tus Ahorros",
+    seoDescription:
+      "Descubre cómo el interés compuesto multiplica tus ahorros con el tiempo y aprende a empezar con aportaciones pequeñas y constantes.",
     excerpt:
       "Descubre cómo el tiempo, la constancia y la rentabilidad pueden convertir pequeñas cantidades en un ahorro mucho más grande si empiezas desde joven.",
     description:
@@ -95,6 +100,9 @@ export const posts: Post[] = [
   {
     slug: "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
     title: "¿Cómo leer una nómina en España? Guía explicativa paso a paso",
+    seoTitle: "¿Cómo Leer tu Nómina en 2026? Guía Fácil y Pasos",
+    seoDescription:
+      "Aprende a leer tu nómina paso a paso: sueldo bruto, neto, cotizaciones e IRPF. Entiende cada descuento y revisa si está correcto.",
     excerpt:
       "Entiende cada concepto de tu nómina, desde el bruto hasta el neto, y descubre qué se retiene por IRPF y Seguridad Social en España.",
     description:
@@ -165,6 +173,9 @@ export const posts: Post[] = [
   {
     slug: "diferencia-entre-12-y-14-pagas-cual-te-conviene-mas",
     title: "Diferencia entre 12 y 14 pagas: ¿Cuál te conviene más?",
+    seoTitle: "12 o 14 Pagas: ¿Cuál es Mejor para tu Sueldo?",
+    seoDescription:
+      "Compara 12 y 14 pagas, descubre cómo cambia tu nómina mensual y elige la opción que mejor encaja con tus gastos y ahorro.",
     excerpt:
       "Descubre cómo cambia tu nómina mensual si cobras 12 o 14 pagas y qué impacto tiene en el salario neto y la planificación financiera.",
     description:
@@ -233,6 +244,9 @@ export const posts: Post[] = [
   {
     slug: "retenciones-de-irpf-en-2026-tabla-de-tramos-y-como-te-afectan",
     title: "Retenciones de IRPF en 2026: Tabla de tramos y cómo te afectan",
+    seoTitle: "Tramos del IRPF 2026: ¿Cuánto te Retienen?",
+    seoDescription:
+      "Consulta cómo funcionan los tramos del IRPF en 2026 y descubre cuánto pueden retenerte del sueldo según tu salario y situación.",
     excerpt:
       "Consulta la lógica de los tramos del IRPF en 2026 y aprende a interpretar la retención que aparece en tu nómina.",
     description:
@@ -300,6 +314,9 @@ export const posts: Post[] = [
   {
     slug: "contingencias-comunes-y-desempleo-que-te-descuentan-de-la-nomina",
     title: "Contingencias comunes y desempleo: ¿Qué te descuentan de la nómina?",
+    seoTitle: "Descuentos en Nómina: Contingencias y Desempleo",
+    seoDescription:
+      "Entiende los descuentos por contingencias comunes, desempleo y formación profesional que aparecen en tu nómina en España.",
     excerpt:
       "Conoce qué conceptos se descuentan por contingencias comunes, desempleo y formación profesional, y qué protección te brinda cada uno.",
     description:
@@ -365,6 +382,9 @@ export const posts: Post[] = [
   {
     slug: "el-mito-del-salto-de-tramo-del-irpf",
     title: "El mito del salto de tramo del IRPF: Por qué no cobras menos si ganas más",
+    seoTitle: "Salto de Tramo IRPF: ¿Cobras Menos al Ganar Más?",
+    seoDescription:
+      "Desmontamos el mito del salto de tramo del IRPF: descubre por qué ganar más no hace que cobres menos y cómo se calcula por tramos.",
     excerpt:
       "Explicamos por qué el IRPF se aplica por tramos y por qué un aumento de sueldo no siempre significa que te queden menos euros netos en la nómina.",
     description:

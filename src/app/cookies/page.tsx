@@ -3,6 +3,8 @@ import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
   title: "Política de Cookies",
+  description: "Información sobre las cookies, tecnologías similares y opciones de consentimiento utilizadas en Números Claritos.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {

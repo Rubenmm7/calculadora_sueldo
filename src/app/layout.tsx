@@ -21,12 +21,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Números claritos | Calculadora de nóminas y sueldo neto en España",
-    template: "%s | Números claritos",
+    default: "Calculadora Sueldo Neto 2026 | Números Claritos",
+    template: "%s | Números Claritos",
   },
   description:
-    "Calcula tu sueldo neto en España, entiende cómo funciona tu nómina y consulta guías sobre IRPF, Seguridad Social e interés compuesto en Números claritos.",
-  applicationName: "Números claritos",
+    "Calcula con precisión tu sueldo neto, IRPF y cotizaciones en España. Revisa tu nómina y toma decisiones laborales con datos claros y actualizados.",
+  applicationName: "Números Claritos",
   keywords: [
     "sueldo neto España",
     "calculadora nómina",
@@ -37,24 +37,24 @@ export const metadata: Metadata = {
     "nómina en España",
     "desempleo nómina",
   ],
-  authors: [{ name: "Números claritos" }],
-  creator: "Números claritos",
-  publisher: "Números claritos",
+  authors: [{ name: "Números Claritos" }],
+  creator: "Números Claritos",
+  publisher: "Números Claritos",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "es_ES",
     url: siteUrl,
-    siteName: "Números claritos",
-    title: "Números claritos | Nóminas, IRPF y finanzas personales",
+    siteName: "Números Claritos",
+    title: "Calculadora Sueldo Neto 2026 | Números Claritos",
     description:
-      "Herramientas y guías para entender tu nómina, el sueldo neto y la fiscalidad laboral en España.",
+      "Calcula tu sueldo neto, IRPF y cotizaciones en España con datos claros para entender mejor tu nómina.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Números claritos | Nóminas, IRPF y finanzas personales",
+    title: "Calculadora Sueldo Neto 2026 | Números Claritos",
     description:
-      "Calculadora de sueldo neto y artículos de SEO sobre nóminas e IRPF en España.",
+      "Calcula tu sueldo neto, IRPF y cotizaciones en España con datos claros para entender mejor tu nómina.",
   },
   robots: { index: true, follow: true },
 };

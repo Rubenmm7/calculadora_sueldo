@@ -3,10 +3,22 @@ import Link from "next/link";
 import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
-  title: "Blog de nóminas, IRPF y finanzas en España",
+  title: "Blog de Nóminas, IRPF y Finanzas Personales",
   description:
-    "Guías y análisis sobre nóminas, sueldo neto, IRPF, Seguridad Social e interés compuesto para entender mejor tus finanzas en España.",
+    "Guías claras para entender tu nómina, calcular el sueldo neto, conocer el IRPF y tomar mejores decisiones financieras en España.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog de Nóminas, IRPF y Finanzas Personales",
+    description:
+      "Guías claras para entender tu nómina, calcular el sueldo neto, conocer el IRPF y tomar mejores decisiones financieras en España.",
+    url: "/blog",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog de Nóminas, IRPF y Finanzas Personales",
+    description:
+      "Guías claras para entender tu nómina, calcular el sueldo neto, conocer el IRPF y tomar mejores decisiones financieras en España.",
+  },
 };
 
 export default function BlogPage() {

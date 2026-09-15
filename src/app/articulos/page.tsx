@@ -3,10 +3,22 @@ import Link from "next/link";
 import { articulos } from "./articulos";
 
 export const metadata: Metadata = {
-  title: "Artículos sobre finanzas y nóminas",
+  title: "Guías de Sueldo Neto, Nóminas e IRPF",
   description:
-    "Guías sencillas sobre sueldo neto, nóminas, IRPF, Seguridad Social y finanzas personales en España.",
+    "Consulta guías prácticas sobre sueldo neto, nóminas, IRPF y Seguridad Social para entender mejor tus finanzas en España.",
   alternates: { canonical: "/articulos" },
+  openGraph: {
+    title: "Guías de Sueldo Neto, Nóminas e IRPF",
+    description:
+      "Consulta guías prácticas sobre sueldo neto, nóminas, IRPF y Seguridad Social para entender mejor tus finanzas en España.",
+    url: "/articulos",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guías de Sueldo Neto, Nóminas e IRPF",
+    description:
+      "Consulta guías prácticas sobre sueldo neto, nóminas, IRPF y Seguridad Social para entender mejor tus finanzas en España.",
+  },
 };
 
 export default function ArticulosPage() {

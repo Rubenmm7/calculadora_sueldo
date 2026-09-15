@@ -5,10 +5,24 @@ import Calculadora from "@/components/Calculadora";
 import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
-  title: "Calculadora de sueldo neto e IRPF en España",
+  title: {
+    absolute: "Calculadora Sueldo Neto 2026: ¿Cuánto cobras en nómina? | Números Claritos",
+  },
   description:
-    "Calcula tu sueldo neto en España, entiende cómo se aplica el IRPF y la Seguridad Social y descubre guías prácticas sobre nóminas y finanzas personales.",
+    "Calcula gratis tu salario neto mensual y anual según las retenciones de IRPF y normativa laboral en España. ¡Sin registros y al instante!",
   alternates: { canonical: "/" },
+  openGraph: {
+    title: "Calculadora Sueldo Neto 2026: ¿Cuánto cobras en nómina? | Números Claritos",
+    description:
+      "Calcula gratis tu salario neto mensual y anual según las retenciones de IRPF y normativa laboral en España. ¡Sin registros y al instante!",
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Calculadora Sueldo Neto 2026: ¿Cuánto cobras en nómina? | Números Claritos",
+    description:
+      "Calcula gratis tu salario neto mensual y anual según las retenciones de IRPF y normativa laboral en España. ¡Sin registros y al instante!",
+  },
 };
 
 const toolCards = [

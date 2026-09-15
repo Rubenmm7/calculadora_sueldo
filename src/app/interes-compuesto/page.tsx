@@ -3,10 +3,22 @@ import Link from "next/link";
 import CalculadoraInteresCompuesto from "@/components/CalculadoraInteresCompuesto";
 
 export const metadata: Metadata = {
-  title: "Calculadora de interés compuesto",
+  title: "Calculadora de Interés Compuesto",
   description:
-    "Calcula el crecimiento de tus ahorros con interés compuesto, aportaciones periódicas, inflación e impuestos estimados.",
+    "Calcula gratis el interés compuesto de tus ahorros con aportaciones periódicas, rentabilidad, inflación e impuestos estimados.",
   alternates: { canonical: "/interes-compuesto" },
+  openGraph: {
+    title: "Calculadora de Interés Compuesto",
+    description:
+      "Calcula gratis el interés compuesto de tus ahorros con aportaciones periódicas, rentabilidad, inflación e impuestos estimados.",
+    url: "/interes-compuesto",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Calculadora de Interés Compuesto",
+    description:
+      "Calcula gratis el interés compuesto de tus ahorros con aportaciones periódicas, rentabilidad, inflación e impuestos estimados.",
+  },
 };
 
 export default function InteresCompuestoPage() {

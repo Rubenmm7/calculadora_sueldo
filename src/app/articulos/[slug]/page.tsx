@@ -23,11 +23,19 @@ export async function generateMetadata({
     alternates: { canonical: `/articulos/${articulo.slug}` },
     openGraph: {
       type: "article",
+      url: `/articulos/${articulo.slug}`,
       title: articulo.title,
       description: articulo.description,
       publishedTime: "2026-09-03",
       modifiedTime: "2026-09-03",
       section: articulo.category,
+      siteName: "Números Claritos",
+      locale: "es_ES",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: articulo.title,
+      description: articulo.description,
     },
   };
 }

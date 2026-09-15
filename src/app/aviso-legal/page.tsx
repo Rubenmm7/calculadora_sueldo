@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import LegalPage from "@/components/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Aviso Legal y Contacto",
+  title: "Aviso Legal",
+  description: "Consulta el aviso legal, la información del titular y las condiciones de uso de Números Claritos.",
+  alternates: { canonical: "/aviso-legal" },
 };
 
 export default function AvisoLegalPage() {
