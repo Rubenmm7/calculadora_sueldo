@@ -174,10 +174,10 @@ function Tooltip({ text }: { text: string }) {
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
         onClick={() => setShow(!show)}
-        className="ml-1 inline-flex min-h-[44px] min-w-[44px] items-center justify-center rounded-full bg-zinc-300 text-xs font-bold text-zinc-700 hover:bg-zinc-400 dark:bg-zinc-600 dark:text-zinc-200 dark:hover:bg-zinc-500"
+        className="w-6 h-6 flex items-center justify-center rounded-full bg-zinc-600/50 hover:bg-zinc-600 cursor-help transition-colors"
         aria-label="Información"
       >
-        ?
+        <span className="text-xs font-bold text-gray-200">?</span>
       </button>
       {show && (
         <div className="absolute bottom-full left-1/2 mb-2 w-48 -translate-x-1/2 transform rounded-lg bg-zinc-900 px-3 py-2 text-xs text-white shadow-lg dark:bg-zinc-100 dark:text-zinc-900 z-50">
