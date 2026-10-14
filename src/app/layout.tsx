@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
+import AccessibilityControls from "@/components/AccessibilityControls";
 import "./globals.css";
 
 const siteUrl = "https://numerosclaritos.com";
@@ -21,6 +22,8 @@ const geistMono = Geist_Mono({
   display: "swap",
   preload: true,
 });
+
+const accessibilityBootstrap = `(function(){try{var r=document.documentElement;var t=localStorage.getItem("numeros-claritos-theme")==="light"?"light":"dark";var s=localStorage.getItem("numeros-claritos-text-size");if(s!=="small"&&s!=="normal"&&s!=="large")s="normal";var c=localStorage.getItem("numeros-claritos-high-contrast")==="true";r.classList.toggle("dark",t==="dark");r.classList.toggle("light",t==="light");r.classList.toggle("a11y-high-contrast",c);r.dataset.textSize=s;r.style.colorScheme=t}catch(e){document.documentElement.classList.add("dark")}})();`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -67,13 +70,22 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col pt-16 sm:pt-20">
+        <script dangerouslySetInnerHTML={{ __html: accessibilityBootstrap }} />
+        <a
+          href="#main-content"
+          className="sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:text-zinc-900 focus:shadow-lg"
+        >
+          Saltar al contenido principal
+        </a>
         <Navbar />
         {children}
         <Footer />
         <CookieBanner />
+        <AccessibilityControls />
       </body>
       <GoogleAnalytics gaId="G-G65LRV4G7W" />
     </html>

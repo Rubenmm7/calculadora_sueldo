@@ -11,7 +11,7 @@ export default function ContactoPage() {
   const emailContacto = "soportecalculadorasueldo@gmail.com";
 
   return (
-    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-8">
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-3xl space-y-4">
@@ -34,7 +34,7 @@ export default function ContactoPage() {
             <div className="mt-5 rounded-2xl border border-zinc-200 bg-zinc-50 p-4 dark:border-zinc-800 dark:bg-zinc-900">
               <a
                 href={`mailto:${emailContacto}`}
-                className="inline-block break-all text-base font-semibold text-zinc-900 transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:text-zinc-100 dark:hover:text-emerald-300"
+                className="inline-block break-all text-base font-semibold text-zinc-900 transition-colors duration-200 hover:text-emerald-800 no-underline dark:text-zinc-100 dark:hover:text-emerald-300"
               >
                 {emailContacto}
               </a>
@@ -61,7 +61,7 @@ export default function ContactoPage() {
 
             <div className="mt-5 rounded-2xl bg-white/70 p-4 text-sm text-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-300">
               Consulta nuestra{' '}
-              <Link href="/privacidad" className="inline-block font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300">
+              <Link href="/privacidad" className="inline-block font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-300">
                 Política de Privacidad
               </Link>{' '}
               para más información sobre tus derechos.

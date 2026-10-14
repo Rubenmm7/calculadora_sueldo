@@ -68,7 +68,7 @@ export default async function BlogPostPage({
   const relatedPosts = posts.filter((item) => item.slug !== post.slug && post.relatedSlugs.includes(item.slug));
 
   return (
-    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <article className="mx-auto max-w-5xl space-y-8">
         <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-8">
           <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-500 dark:text-zinc-400">
@@ -148,7 +148,7 @@ export default async function BlogPostPage({
                       {related.category}
                     </p>
                     <h3 className="mt-2 text-lg font-bold text-zinc-900 dark:text-zinc-50">
-                      <Link href={`/blog/${related.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
+                      <Link href={`/blog/${related.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-800 no-underline dark:hover:text-emerald-300">
                         {related.title}
                       </Link>
                     </h3>
@@ -159,11 +159,35 @@ export default async function BlogPostPage({
           </div>
         </div>
 
+        {post.sources && post.sources.length > 0 && (
+          <section aria-labelledby="post-sources-title" className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950">
+            <h2 id="post-sources-title" className="text-lg font-bold text-zinc-900 dark:text-zinc-50">
+              Fuentes oficiales consultadas
+            </h2>
+            <ul className="mt-3 space-y-2 text-sm">
+              {post.sources.map((source) => (
+                <li key={source.url}>
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-emerald-800 underline underline-offset-2 hover:text-emerald-900 dark:text-emerald-300 dark:hover:text-emerald-200"
+                  >
+                    {source.title}
+                    <span className="sr-only"> (se abre en una pestaña nueva)</span>
+                  </a>
+                  <span className="ml-2 text-zinc-600 dark:text-zinc-400">{source.publisher}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
         <nav className="flex flex-col gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:flex-row sm:items-center sm:justify-between">
-          <Link href="/blog" className="inline-flex items-center gap-2 font-semibold text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-zinc-300 dark:hover:text-emerald-300">
+          <Link href="/blog" className="inline-flex items-center gap-2 font-semibold text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-zinc-300 dark:hover:text-emerald-300">
             ← Volver al blog
           </Link>
-          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300">
+          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-300">
             Calcular mi nómina
           </Link>
         </nav>

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ArticulosPage() {
   return (
-    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-8">
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
           <div className="max-w-2xl space-y-3">
@@ -51,7 +51,7 @@ export default function ArticulosPage() {
                 <span>{articulo.readTime}</span>
               </div>
               <h2 className="mt-4 text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                <Link href={`/articulos/${articulo.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
+                <Link href={`/articulos/${articulo.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-800 no-underline dark:hover:text-emerald-300">
                   {articulo.title}
                 </Link>
               </h2>

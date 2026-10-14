@@ -66,7 +66,9 @@ const faqSchema = {
 };
 
 export default function Home() {
-  const featuredPosts = posts.slice(0, 4);
+  const featuredPosts = [...posts]
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+    .slice(0, 4);
 
   return (
     <>
@@ -76,22 +78,22 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+      <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
         <div className="mx-auto max-w-6xl space-y-10 lg:space-y-12">
-          <section className="overflow-hidden rounded-[32px] border border-zinc-700 bg-[#050b10] p-5 shadow-sm sm:p-7 lg:p-8">
+          <section className="overflow-hidden rounded-[32px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-700 dark:bg-[#050b10] sm:p-7 lg:p-8">
             
 
             <div className="max-w-5xl space-y-5">
-              <h1 className="text-4xl font-black tracking-tight text-white ">
+              <h1 className="text-4xl font-black tracking-tight text-zinc-900 dark:text-white">
                 Calculadora de Sueldo Neto e IRPF en España
               </h1>
-              <p className="max-w-3xl text-lg leading-8 text-zinc-300">
+              <p className="max-w-3xl text-lg leading-8 text-zinc-700 dark:text-zinc-300">
                 Comprueba tu salario bruto, la cotización a la Seguridad Social, la retención del IRPF y el resultado real antes de aceptar una oferta o revisar tu nómina.
               </p>
             </div>
 
-            <div className="mt-7 rounded-2xl border border-emerald-500/70 bg-emerald-500/10 px-4 py-4 text-sm text-emerald-100 shadow-[0_0_18px_rgba(16,185,129,0.12)]">
-              <span className="font-semibold text-emerald-300">Cálculo orientativo:</span> nómina, IRPF y Seguridad Social en España.
+            <div className="mt-7 rounded-2xl border border-emerald-300 bg-emerald-50 px-4 py-4 text-sm text-emerald-950 dark:border-emerald-500/70 dark:bg-emerald-500/10 dark:text-emerald-100 dark:shadow-[0_0_18px_rgba(16,185,129,0.12)]">
+              <span className="font-semibold text-emerald-800 dark:text-emerald-300">Cálculo orientativo:</span> nómina, IRPF y Seguridad Social en España.
             </div>
 
             <div className="mt-8">
@@ -111,7 +113,7 @@ export default function Home() {
               </div>
               <Link
                 href="/blog"
-                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300"
+                className="inline-flex min-h-[44px] items-center text-sm font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-300"
               >
                 Ver todos los artículos en el Blog
               </Link>
@@ -126,7 +128,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="mt-4 text-xl font-bold leading-tight text-zinc-900 dark:text-zinc-50">
-                    <Link href={`/blog/${post.slug}`} className="inline-flex min-h-[44px] items-center transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
+                    <Link href={`/blog/${post.slug}`} className="inline-flex min-h-[44px] items-center transition-colors duration-200 hover:text-emerald-800 no-underline dark:hover:text-emerald-300">
                       {post.title}
                     </Link>
                   </h3>
@@ -137,7 +139,7 @@ export default function Home() {
                     <time dateTime={post.publishedAt}>Actualizado {post.publishedAt}</time>
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400"
+                      className="inline-flex min-h-[44px] min-w-[44px] items-center justify-center font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-400"
                     >
                       Leer
                     </Link>

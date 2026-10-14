@@ -51,7 +51,7 @@ export default async function ArticuloPage({
   if (!articulo) notFound();
 
   return (
-    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <article className="mx-auto max-w-4xl space-y-8">
         <header className="rounded-[28px] border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 md:p-10">
           <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-zinc-500 dark:text-zinc-400">
@@ -81,10 +81,10 @@ export default async function ArticuloPage({
         </div>
 
         <nav className="mt-8 flex flex-wrap justify-between gap-3 rounded-2xl border border-zinc-200 bg-white p-5 text-sm shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
-          <Link href="/articulos" className="inline-flex items-center gap-2 font-medium text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-zinc-300 dark:hover:text-emerald-400">
+          <Link href="/articulos" className="inline-flex items-center gap-2 font-medium text-zinc-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-zinc-300 dark:hover:text-emerald-400">
             Todos los artículos
           </Link>
-          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-400 hover:drop-shadow-[0_0_8px_rgba(52,211,153,0.8)] dark:text-emerald-300 dark:hover:text-emerald-400">
+          <Link href="/" className="inline-flex items-center gap-2 font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-800 dark:text-emerald-300 dark:hover:text-emerald-400">
             Calcular mi sueldo neto
           </Link>
         </nav>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import BlogSearch from "@/components/BlogSearch";
 import { posts } from "@/data/posts";
 
 export const metadata: Metadata = {
@@ -22,8 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
+  const latestPosts = [...posts].sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+
   return (
-    <main className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
+    <main id="main-content" tabIndex={-1} className="flex-1 bg-gradient-to-b from-zinc-50 via-emerald-50/40 to-zinc-50 px-4 py-8 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950 sm:py-10 lg:py-12">
       <div className="mx-auto max-w-6xl space-y-8">
 
         <header className="rounded-[28px] border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-950 sm:p-7">
@@ -37,39 +40,16 @@ export default function BlogPage() {
           </div>
         </header>
 
-        <section aria-label="Artículos del blog" className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="group flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"
-            >
-              <div className="flex items-center justify-between gap-3 text-xs font-medium text-zinc-500 dark:text-zinc-400">
-                <span>{post.category}</span>
-                <span>{post.readingTime}</span>
-              </div>
-
-              <h2 className="mt-4 text-xl font-bold leading-tight text-zinc-900 dark:text-zinc-50">
-                <Link href={`/blog/${post.slug}`} className="inline-block transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] no-underline dark:hover:text-emerald-300">
-                  {post.title}
-                </Link>
-              </h2>
-
-              <p className="mt-3 flex-1 text-sm leading-6 text-zinc-600 dark:text-zinc-400">
-                {post.excerpt}
-              </p>
-
-              <div className="mt-5 flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
-                <time dateTime={post.publishedAt}>Actualizado {post.publishedAt}</time>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="font-semibold text-emerald-700 no-underline transition-colors duration-200 hover:text-emerald-300 hover:drop-shadow-[0_0_10px_rgba(16,185,129,0.35)] dark:text-emerald-300 dark:hover:text-emerald-300"
-                >
-                  Leer artículo
-                </Link>
-              </div>
-            </article>
-          ))}
-        </section>
+        <BlogSearch
+          posts={latestPosts.map(({ slug, title, excerpt, category, publishedAt, readingTime }) => ({
+            slug,
+            title,
+            excerpt,
+            category,
+            publishedAt,
+            readingTime,
+          }))}
+        />
 
         <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-900 dark:bg-emerald-950/30">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

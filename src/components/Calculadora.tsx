@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useId, useMemo, useState } from "react";
 
 type NumeroPagas = 12 | 14;
 type EstadoCivil = "soltero" | "casado" | "con_hijos";
@@ -166,26 +166,34 @@ function handleFormattedNumber(value: string): string {
 
 function Tooltip({ text }: { text: string }) {
   const [show, setShow] = useState(false);
+  const tooltipId = useId();
 
   return (
-    <div className="relative inline-flex">
+    <div
+      className="relative inline-flex"
+      onMouseEnter={() => setShow(true)}
+      onMouseLeave={() => setShow(false)}
+    >
       <button
         type="button"
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
-        onClick={() => setShow(!show)}
+        aria-describedby={tooltipId}
+        onFocus={() => setShow(true)}
+        onBlur={() => setShow(false)}
         className="w-6 h-6 flex items-center justify-center rounded-full bg-zinc-600/50 hover:bg-zinc-600 cursor-help transition-colors"
         aria-label="Información"
       >
         <span className="text-xs font-bold text-gray-200">?</span>
       </button>
-      {show && (
-        <div className="absolute bottom-full left-1/2 mb-2 w-48 -translate-x-1/2 transform rounded-lg bg-zinc-900 px-3 py-2 text-xs text-white shadow-lg dark:bg-zinc-100 dark:text-zinc-900 z-50">
-          {text}
-          <div className="absolute bottom-0 left-1/2 -mb-1 h-2 w-2 -translate-x-1/2 transform rotate-45 bg-zinc-900 dark:bg-zinc-100"></div>
-        </div>
-      )}
+      <div
+        id={tooltipId}
+        role="tooltip"
+        className={`absolute bottom-full left-1/2 mb-2 w-48 -translate-x-1/2 transform rounded-lg bg-zinc-900 px-3 py-2 text-xs text-white shadow-lg transition-opacity dark:bg-zinc-100 dark:text-zinc-900 z-50 ${show ? "visible opacity-100" : "invisible opacity-0"}`}
+      >
+        {text}
+        <div className="absolute bottom-0 left-1/2 -mb-1 h-2 w-2 -translate-x-1/2 transform rotate-45 bg-zinc-900 dark:bg-zinc-100"></div>
+      </div>
     </div>
+
   );
 }
 

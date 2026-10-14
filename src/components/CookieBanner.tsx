@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const STORAGE_KEY = "cookie-consent";
 
@@ -21,6 +21,7 @@ function applyConsent(value: CookieConsent) {
 
 export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(true);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const saved = window.localStorage.getItem(STORAGE_KEY);
@@ -32,6 +33,27 @@ export default function CookieBanner() {
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
+  useEffect(() => {
+    const banner = bannerRef.current;
+    if (!isVisible || !banner) {
+      document.documentElement.style.setProperty("--cookie-banner-height", "0px");
+      return;
+    }
+
+    const updateHeight = () => {
+      document.documentElement.style.setProperty(
+        "--cookie-banner-height",
+        `${banner.getBoundingClientRect().height}px`,
+      );
+    };
+
+    updateHeight();
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(banner);
+
+    return () => observer.disconnect();
+  }, [isVisible]);
+
   function save(value: CookieConsent) {
     window.localStorage.setItem(STORAGE_KEY, value);
     applyConsent(value);
@@ -42,6 +64,8 @@ export default function CookieBanner() {
 
   return (
     <div
+      ref={bannerRef}
+      id="cookie-banner"
       role="dialog"
       aria-labelledby="cookie-title"
       aria-describedby="cookie-desc"

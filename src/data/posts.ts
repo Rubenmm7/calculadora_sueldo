@@ -14,6 +14,7 @@ export type Post = {
     heading: string;
     content: string[];
   }>;
+  sources?: Array<{ title: string; publisher: string; url: string }>;
   relatedSlugs: string[];
   cta?: { label: string; href: string };
 };
@@ -690,5 +691,299 @@ export const posts: Post[] = [
       label: "Calcula cuánto crecerá tu fondo de emergencia a 5 años",
       href: "/interes-compuesto",
     },
+  },
+  {
+    slug: "vivienda-2026-hipoteca-precio-presupuesto-espana",
+    title: "Vivienda en España en 2026: cómo saber si comprar te sale a cuenta",
+    seoTitle: "Vivienda 2026: precio, hipoteca y gastos reales en España",
+    seoDescription:
+      "El precio de la vivienda subió un 12,2% interanual en el segundo trimestre de 2026. Aprende a calcular entrada, cuota y gastos antes de comprar.",
+    excerpt:
+      "El INE registró una subida anual del 12,2% en vivienda. Qué significa para tu bolsillo y cómo comparar una hipoteca sin quedarte sin colchón.",
+    description:
+      "Guía práctica para valorar la compra de vivienda en España: precio, ahorros iniciales, cuota hipotecaria, gastos de propiedad y escenarios de tipos.",
+    category: "Vivienda e hipotecas",
+    publishedAt: "2026-10-14",
+    readingTime: "8 min de lectura",
+    toc: [
+      { id: "dato-vivienda", label: "Qué dice el último dato del INE" },
+      { id: "coste-total", label: "Calcula el coste completo" },
+      { id: "comparar-hipotecas", label: "Compara hipotecas por coste" },
+      { id: "decidir", label: "Decide sin prisa ni presión" },
+    ],
+    sections: [
+      {
+        id: "dato-vivienda",
+        heading: "El precio de la vivienda sube, pero la cifra no decide por ti",
+        content: [
+          "El último Índice de Precios de Vivienda del INE disponible a 14 de octubre de 2026 corresponde al segundo trimestre: subió un 12,2% interanual y un 3,4% respecto al trimestre anterior. La vivienda nueva aumentó un 7,4% anual y la usada un 12,9%. Son medias nacionales de compraventas; tu barrio, tipo de inmueble y situación pueden ser muy distintos.",
+          "Una subida del índice no significa que debas comprar deprisa ni que todos los inmuebles vayan a revalorizarse igual. Sirve para entender el contexto y hacer números con precios actuales, no para predecir el próximo año. La decisión debe encajar con tus ingresos, estabilidad laboral, ahorro disponible y horizonte de permanencia.",
+        ],
+      },
+      {
+        id: "coste-total",
+        heading: "No mires solo la cuota: calcula el coste completo de ser propietario",
+        content: [
+          "Antes de reservar, suma el dinero que necesitarías al inicio: entrada, impuestos y gastos de compraventa aplicables, tasación, mudanza y posibles reparaciones. El importe depende de la comunidad autónoma, de si la vivienda es nueva o usada y de las condiciones de la operación. Pide un desglose por escrito y no des por hecho que el banco financiará todo el precio.",
+          "Después calcula el coste mensual de vivienda: hipoteca, comunidad, suministros, seguro, impuestos y mantenimiento. Añade tus otros préstamos y conserva un fondo para imprevistos. Como prueba de resistencia, pregunta si podrías seguir pagando con una cuota más alta o con una bajada temporal de ingresos; no existe un porcentaje universal que sustituya a ese cálculo personal.",
+        ],
+      },
+      {
+        id: "comparar-hipotecas",
+        heading: "Compara la hipoteca por su coste total, no solo por el tipo anunciado",
+        content: [
+          "Pide ofertas comparables y revisa TAE, comisiones, productos vinculados, plazo, cuota inicial y total a devolver. Comprueba qué seguros o servicios son opcionales, cuánto cuestan y qué ocurre si dejas de contratarlos. Un tipo nominal bajo puede no ser la oferta más barata cuando se añaden costes y condiciones.",
+          "Con tipo variable, la cuota puede cambiar cuando se revise el índice de referencia; con tipo fijo, pagas una cuota pactada pero pueden existir otras condiciones y costes. No intentes adivinar la próxima decisión del BCE: simula escenarios y comprueba si tu presupuesto resistiría una subida. El Banco de España ofrece información y simuladores para comparar cuotas y TAE.",
+        ],
+      },
+      {
+        id: "decidir",
+        heading: "Una lista breve antes de firmar",
+        content: [
+          "Confirma cuánto dinero te queda después de pagar la entrada y los gastos, compara al menos varias ofertas con la misma duración y solicita la documentación precontractual para revisarla con calma. Lee también [cómo construir un fondo de emergencia](/blog/cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia): comprar sin liquidez puede convertir una reparación normal en deuda cara.",
+          "Si los números solo cuadran suponiendo que todo irá perfecto, esperar, buscar otra vivienda o seguir de alquiler también son opciones válidas. Compara la cuota con tu sueldo neto y tus deudas actuales; una calculadora puede orientar, pero no reemplaza la oferta vinculante ni el asesoramiento independiente.",
+        ],
+      },
+    ],
+    sources: [
+      {
+        title: "Índice de Precios de Vivienda, segundo trimestre de 2026",
+        publisher: "Instituto Nacional de Estadística",
+        url: "https://www.ine.es/dyngs/Prensa/IPV2T26.htm",
+      },
+      {
+        title: "Guía del cliente bancario: hipotecas",
+        publisher: "Banco de España",
+        url: "https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/financiacion/hipotecas/",
+      },
+    ],
+    relatedSlugs: [
+      "cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia",
+      "pago-aplazado-bnpl-tarjeta-coste-real",
+      "como-leer-una-nomina-en-espana-guia-explicativa-paso-a-paso",
+    ],
+    cta: { label: "Calcula tu sueldo neto", href: "/" },
+  },
+  {
+    slug: "ipc-inflacion-2026-presupuesto-ahorro-espana",
+    title: "El IPC llega al 4,3%: cómo ajustar tu presupuesto y cuidar el ahorro",
+    seoTitle: "IPC 2026: cómo afecta la inflación a tu ahorro en España",
+    seoDescription:
+      "El último IPC disponible a 14 de octubre fue del 4,3% interanual en agosto. Aprende a revisar gastos, presupuesto y ahorro sin asumir riesgos a ciegas.",
+    excerpt:
+      "La inflación no afecta igual a todos los hogares. Usa el dato del INE para localizar tus gastos sensibles y tomar medidas concretas.",
+    description:
+      "Qué significa el IPC de agosto de 2026 para la economía doméstica y cómo revisar gastos, ahorro líquido y objetivos financieros con criterio.",
+    category: "Ahorro y coste de vida",
+    publishedAt: "2026-10-14",
+    readingTime: "7 min de lectura",
+    toc: [
+      { id: "ultimo-ipc", label: "Qué mide el IPC de agosto" },
+      { id: "tu-inflacion", label: "Calcula el impacto en tu hogar" },
+      { id: "ajustar-gastos", label: "Ajusta el presupuesto" },
+      { id: "ahorro", label: "Cuida el ahorro sin perseguir rentabilidad" },
+    ],
+    sections: [
+      {
+        id: "ultimo-ipc",
+        heading: "El dato más reciente: IPC anual del 4,3% en agosto de 2026",
+        content: [
+          "A 14 de octubre de 2026, el último dato definitivo del INE disponible es el de agosto: el IPC general aumentó un 4,3% respecto al mismo mes del año anterior. La inflación subyacente, que excluye energía y alimentos no elaborados, fue del 2,9%. El transporte registró una tasa anual del 9,5% y los alimentos y bebidas no alcohólicas del 2,3%.",
+          "El 4,3% no significa que cada producto de tu cesta haya subido exactamente eso ni que tus precios hayan aumentado esa cantidad desde enero. Es una variación interanual de una cesta estadística; tu gasto personal depende de dónde vives, cómo te desplazas, qué compras y qué contratos tienes.",
+        ],
+      },
+      {
+        id: "tu-inflacion",
+        heading: "Encuentra qué partidas están presionando tu economía",
+        content: [
+          "Revisa los movimientos bancarios de los últimos tres meses y agrúpalos en vivienda, transporte, alimentación, suministros, deudas y ocio. Compara importes y cantidades con el mismo periodo del año pasado cuando tengas datos. Así separas una subida de precio de un mayor consumo o de un gasto puntual.",
+          "Prioriza los costes que se repiten: renovación de seguros, tarifas de luz y telecomunicaciones, comisiones y suscripciones. Antes de cambiar de proveedor, compara la factura completa, la permanencia, los descuentos temporales y el precio después de la promoción. Un cambio solo ayuda si el coste total realmente baja.",
+        ],
+      },
+      {
+        id: "ajustar-gastos",
+        heading: "Ajusta el presupuesto con medidas que puedas mantener",
+        content: [
+          "Actualiza primero los gastos esenciales y las cuotas, y calcula cuánto queda para ahorro y gasto flexible. Si los ingresos no han seguido el ritmo de tus gastos, puedes renegociar servicios, planificar compras de alimentación, revisar desplazamientos y fijar un límite semanal realista. Evita recortar automáticamente partidas importantes como salud o mantenimiento que puedan generar un coste mayor después.",
+          "Crea una previsión mensual con una categoría para gastos anuales —impuestos, seguros, reparaciones o matrículas— y divide esos importes por los meses que quedan hasta pagarlos. Una transferencia automática a una cuenta separada convierte el presupuesto en una rutina y reduce la tentación de financiar esos recibos con crédito caro.",
+        ],
+      },
+      {
+        id: "ahorro",
+        heading: "Protege primero la liquidez; no persigas la inflación con cualquier producto",
+        content: [
+          "Un fondo de emergencia busca que puedas pagar un imprevisto, no garantizar una rentabilidad real positiva todos los años. Compara el interés neto después de impuestos, las comisiones, la disponibilidad y el riesgo. Una inversión que puede bajar de valor no sustituye al dinero que necesitas tener disponible.",
+          "Para el dinero de largo plazo, define objetivo y horizonte antes de elegir un producto; diversificar y entender los costes importa más que reaccionar a un dato mensual. Consulta [cuentas remuneradas y fondos monetarios](/blog/cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia) para distinguir liquidez, garantía y riesgo. Esta guía es informativa, no una recomendación de inversión personalizada.",
+        ],
+      },
+    ],
+    sources: [
+      {
+        title: "IPC e IPCA, agosto de 2026",
+        publisher: "Instituto Nacional de Estadística",
+        url: "https://www.ine.es/dyngs/Prensa/IPC0826.htm",
+      },
+    ],
+    relatedSlugs: [
+      "cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia",
+      "vivienda-2026-hipoteca-precio-presupuesto-espana",
+      "pago-aplazado-bnpl-tarjeta-coste-real",
+    ],
+    cta: {
+      label: "Simula una aportación a largo plazo",
+      href: "/interes-compuesto",
+    },
+  },
+  {
+    slug: "pago-aplazado-bnpl-tarjeta-coste-real",
+    title: "Compra aplazada: cómo descubrir cuánto cuesta realmente pagar después",
+    seoTitle: "Pago aplazado y BNPL: calcula el coste real antes de comprar",
+    seoDescription:
+      "Comprueba TAE, comisiones, recargos y cuotas acumuladas antes de usar BNPL, tarjeta revolving o crédito rápido en España.",
+    excerpt:
+      "Dividir una compra puede parecer gratis, pero el contrato puede incluir intereses, comisiones o recargos. Aprende qué revisar antes de aceptar.",
+    description:
+      "Guía para comparar pagos aplazados, préstamos rápidos y tarjetas revolving con el coste total, el calendario de cuotas y tu presupuesto mensual.",
+    category: "Crédito y consumo",
+    publishedAt: "2026-10-14",
+    readingTime: "7 min de lectura",
+    toc: [
+      { id: "contrato", label: "Qué estás contratando" },
+      { id: "coste-total", label: "Calcula el coste total" },
+      { id: "cuotas", label: "Suma todas las cuotas" },
+      { id: "alternativas", label: "Qué hacer antes de financiar" },
+    ],
+    sections: [
+      {
+        id: "contrato",
+        heading: "Pagar después también puede ser pedir crédito",
+        content: [
+          "Las opciones de compra aplazada no son todas iguales: algunas permiten fraccionar sin intereses si cumples fechas y condiciones, mientras que otras pueden cobrar intereses, comisiones o recargos por demora. Lee el contrato concreto; el nombre comercial de la opción no te dice por sí solo cuánto pagarás.",
+          "El Banco de España recuerda que un préstamo personal establece el importe recibido y las cuotas, que pueden incorporar intereses, comisiones y otros gastos. Los créditos al consumo suelen resultar más caros que un préstamo hipotecario. Antes de aceptar, confirma quién presta, cuál es el calendario y qué pasa si devuelves tarde.",
+        ],
+      },
+      {
+        id: "coste-total",
+        heading: "Compara TAE, comisiones y euros que saldrán de tu cuenta",
+        content: [
+          "Anota el precio al contado, el importe financiado, cada cuota, cualquier comisión, el coste de apertura y el total que habrás pagado al final. La TAE ayuda a comparar ofertas porque incorpora determinados costes anuales, pero en un aplazamiento corto conviene mirar también el importe total en euros y las condiciones de retraso.",
+          "Comprueba si la cuota promocional cambia después de unos meses, si el pago mínimo alarga la deuda y si hay penalizaciones por impago. En una tarjeta revolving, devolver una cantidad mensual muy baja puede mantener la deuda viva durante mucho tiempo. Usa el simulador del Banco de España y pide las condiciones por escrito antes de firmar.",
+        ],
+      },
+      {
+        id: "cuotas",
+        heading: "Varias compras pequeñas pueden convertirse en una cuota grande",
+        content: [
+          "Haz una lista de todas las cuotas activas, incluidas tarjetas, compras a plazos, préstamos del coche y pagos automáticos. Suma lo que vence cada mes y compáralo con tus ingresos netos después de gastos esenciales. Una compra que parece asumible de forma aislada puede dejar poco margen al acumularse con otras.",
+          "Guarda cada fecha de cargo en el calendario y evita aceptar nuevos aplazamientos para cubrir cuotas anteriores. Si tu presupuesto ya no llega, contacta con la entidad antes del vencimiento para consultar opciones y no encadenes créditos rápidos sin entender su coste total.",
+        ],
+      },
+      {
+        id: "alternativas",
+        heading: "Tres preguntas antes de pulsar «pagar a plazos»",
+        content: [
+          "¿Compraría el producto si tuviera que pagar el precio completo hoy? ¿Tengo ingresos previsibles para todas las fechas de cargo? ¿Conozco el coste total incluso si me retraso? Si alguna respuesta es no, espera, compara una alternativa más barata o crea un ahorro específico antes de asumir la obligación.",
+          "Para gastos necesarios e imprevistos, revisa primero si puedes usar tu fondo de emergencia y cómo reponerlo. Para compras opcionales, esperar unos días suele aclarar si la necesidad es real. Esta información no sustituye la lectura del contrato ni el asesoramiento ante una deuda que ya no puedes atender.",
+        ],
+      },
+    ],
+    sources: [
+      {
+        title: "Préstamo personal y crédito al consumo",
+        publisher: "Banco de España",
+        url: "https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/financiacion/prestamopersonal/",
+      },
+      {
+        title: "Tarjetas: formas de pago e intereses",
+        publisher: "Banco de España",
+        url: "https://clientebancario.bde.es/pcb/es/menu-horizontal/productosservici/serviciospago/tarjetas/",
+      },
+      {
+        title: "Simulador de TAE de un préstamo personal",
+        publisher: "Banco de España",
+        url: "https://clientebancario.bde.es/pcb/es/menu-horizontal/podemosayudarte/simuladores/calculo_tae_prestamo_personal.html",
+      },
+    ],
+    relatedSlugs: [
+      "vivienda-2026-hipoteca-precio-presupuesto-espana",
+      "ipc-inflacion-2026-presupuesto-ahorro-espana",
+      "cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia",
+    ],
+  },
+  {
+    slug: "estafas-inversion-online-comprobar-entidad-cnmv",
+    title: "¿Te prometen ganancias seguras? Cómo detectar una estafa de inversión",
+    seoTitle: "Estafas de inversión: comprueba la entidad antes de invertir",
+    seoDescription:
+      "Señales de alarma, registros oficiales y pasos para protegerte de entidades no autorizadas y fraudes de inversión online en España.",
+    excerpt:
+      "Antes de transferir dinero, comprueba quién lo recibe. La CNMV publica advertencias sobre entidades no autorizadas y un registro para verificar firmas.",
+    description:
+      "Guía práctica para reconocer ofertas de inversión sospechosas, consultar los registros de la CNMV y reaccionar si ya has enviado dinero o datos.",
+    category: "Seguridad financiera",
+    publishedAt: "2026-10-14",
+    readingTime: "6 min de lectura",
+    toc: [
+      { id: "senales", label: "Señales de alerta" },
+      { id: "comprobar", label: "Comprueba quién ofrece la inversión" },
+      { id: "protegerte", label: "Protege tus datos y tu dinero" },
+      { id: "ya-pague", label: "Qué hacer si ya has pagado" },
+    ],
+    sections: [
+      {
+        id: "senales",
+        heading: "Una promesa de rentabilidad segura merece una pausa",
+        content: [
+          "Desconfía de beneficios altos garantizados, presión para transferir hoy, ofertas «exclusivas» que solo llegan por redes o mensajería y explicaciones que no puedes verificar. También es una señal de alerta que te pidan pagar más dinero para liberar una supuesta ganancia o recuperar el capital.",
+          "Una web cuidada, testimonios, capturas de una cuenta o el uso del nombre de un banco conocido no prueban que la oferta sea legítima. Los estafadores pueden copiar la identidad de entidades autorizadas; comprueba la dirección web, el teléfono y la razón social por separado usando los canales oficiales.",
+        ],
+      },
+      {
+        id: "comprobar",
+        heading: "Verifica la entidad en los registros antes de enviar fondos",
+        content: [
+          "Busca la razón social exacta en el registro oficial de entidades autorizadas de la CNMV y revisa su buscador de advertencias. Comprueba que el dominio y los datos de contacto coincidan exactamente con los de la entidad registrada; un nombre parecido puede ser una firma clonada.",
+          "La CNMV explica que sus advertencias informan sobre entidades que podrían operar sin autorización y que la lista de otras entidades no es exhaustiva. Por eso, no encontrar un nombre en la lista de advertidos no confirma que esté autorizado: verifica también el registro y consulta a la CNMV si no puedes aclararlo.",
+        ],
+      },
+      {
+        id: "protegerte",
+        heading: "No compartas claves ni permitas que controlen tu dispositivo",
+        content: [
+          "No comuniques contraseñas, códigos de un solo uso ni datos completos de tarjeta por teléfono, correo o chat. No instales programas de acceso remoto porque alguien que dice ser asesor te lo pida. Nunca uses un enlace recibido para entrar en tu banco o cambiar datos de pago: abre tú mismo la aplicación o escribe la dirección conocida.",
+          "Desconfía también de quien te aconseje pedir un préstamo o usar una tarjeta para invertir. No transfieras a una cuenta de otra persona ni aceptes recibir y reenviar dinero por cuenta de un supuesto intermediario. Conserva mensajes y documentos sin continuar la conversación ni enviar más fondos.",
+        ],
+      },
+      {
+        id: "ya-pague",
+        heading: "Si ya has pagado, actúa cuanto antes",
+        content: [
+          "Llama inmediatamente a tu banco usando el teléfono oficial, explica que sospechas un fraude y pregunta si puede bloquear la operación, tarjeta o acceso comprometido. Cambia las claves desde un dispositivo seguro, conserva justificantes, números de cuenta, direcciones web y conversaciones, y denuncia los hechos ante Policía Nacional o Guardia Civil.",
+          "Si se trata de una oferta de inversión, informa también a la CNMV. Para orientación sobre un incidente de ciberseguridad, INCIBE ofrece ayuda gratuita y confidencial en el 017. Ninguno de estos pasos garantiza recuperar el dinero, pero actuar pronto puede limitar daños y aportar pruebas útiles.",
+        ],
+      },
+    ],
+    sources: [
+      {
+        title: "Advertencias sobre entidades no autorizadas",
+        publisher: "Comisión Nacional del Mercado de Valores",
+        url: "https://www.cnmv.es/Portal/Advertencias.aspx?lang=es",
+      },
+      {
+        title: "Buscador de entidades autorizadas",
+        publisher: "Comisión Nacional del Mercado de Valores",
+        url: "https://www.cnmv.es/Portal/Consultas/BusquedaPorEntidad.aspx?tipoBusqueda=ESI",
+      },
+      {
+        title: "Tu Ayuda en Ciberseguridad: línea 017",
+        publisher: "INCIBE",
+        url: "https://www.incibe.es/linea-de-ayuda-en-ciberseguridad",
+      },
+    ],
+    relatedSlugs: [
+      "cuentas-remuneradas-vs-fondos-monetarios-fondo-emergencia",
+      "por-que-el-interes-compuesto-es-importante-y-por-que-deberias-empezar-joven",
+      "pago-aplazado-bnpl-tarjeta-coste-real",
+    ],
   },
 ];
